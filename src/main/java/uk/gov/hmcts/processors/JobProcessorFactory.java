@@ -1,4 +1,4 @@
-package processors;
+package uk.gov.hmcts.processors;
 
 public class JobProcessorFactory {
 

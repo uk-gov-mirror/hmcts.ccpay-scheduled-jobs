@@ -1,4 +1,4 @@
-package processors;
+package uk.gov.hmcts.processors;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
