@@ -1,3 +1,2 @@
 #!/bin/sh
-export PATH=$JAVA_HOME/bin:$PATH
 java -jar scheduled-jobs-1.0-all.jar $WEBJOB_S2S_CLIENT_SECRET $AUTH_PROVIDER_SERVICE_CLIENT_BASEURL $WEBJOB_S2S_CLIENT_ID $PAYMENT_SERVER_URL status-update
