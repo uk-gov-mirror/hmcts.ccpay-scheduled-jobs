@@ -1,7 +1,9 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.gov.hmcts.otp.S2STokenGeneration;
 import uk.gov.hmcts.processors.JobProcessor;
 import uk.gov.hmcts.processors.JobProcessorFactory;
+
 
 
 public class JobProcessorApplication {
@@ -11,8 +13,12 @@ public class JobProcessorApplication {
     public static void main(String args[])
     {
         try {
+            System.out.println("Inside main method");
             JobProcessorApplication application = new JobProcessorApplication();
-            application.processJob(args[0], args[1], args[2]);
+            S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
+            String s2sToken = s2STokenGeneration.generateOTP(args[0],args[1],args[2]);
+            System.out.println("s2sToken"+s2sToken);
+            application.getJobProcessor(args[3], args[4],s2sToken);
         }
         catch(Exception ex)
         {
@@ -21,10 +27,10 @@ public class JobProcessorApplication {
 
     }
 
-    public void processJob(String serviceToken, String baseURL, String jobType) {
-        LOG.error("Input Values--------"+serviceToken+baseURL+jobType);
+    public void getJobProcessor(String baseURL, String jobType, String s2sToken) {
+        LOG.error("Input Values--------"+s2sToken+baseURL+jobType);
         JobProcessor jobProcessor =  jobProcessorFactory.getJobType(jobType);
-        jobProcessor.process(serviceToken,baseURL);
+        jobProcessor.process(s2sToken,baseURL);
     }
 
 }

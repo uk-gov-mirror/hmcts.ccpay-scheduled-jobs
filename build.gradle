@@ -13,9 +13,12 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.0'
-    //compile group: 'com.amdelamar', name: 'jotp', version: '1.2.0'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
-    //compile group: 'at.bestsolution.efxclipse.eclipse', name: 'com.google.gson', version: '2.2.4'
+    compile group: 'org.jboss.aerogear', name: 'aerogear-otp-java', version:'1.0.0'
+    compile group: 'org.springframework', name: 'spring-context', version: '5.1.8.RELEASE'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.9.9'
+    compile group: 'io.github.openfeign', name: 'feign-jackson', version: '10.2.3'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '1.10.19'
 }
 jar {
     manifest {
