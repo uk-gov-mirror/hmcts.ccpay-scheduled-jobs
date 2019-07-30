@@ -1,8 +1,8 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.gov.hmcts.processors.JobProcessor;
-import uk.gov.hmcts.processors.JobProcessorFactory;
-import uk.gov.hmcts.s2s.S2STokenGeneration;
+import uk.gov.hmcts.payment.processors.JobProcessor;
+import uk.gov.hmcts.payment.processors.JobProcessorFactory;
+import uk.gov.hmcts.payment.s2s.S2STokenGeneration;
 
 
 

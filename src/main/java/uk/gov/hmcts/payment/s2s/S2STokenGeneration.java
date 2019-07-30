@@ -1,4 +1,4 @@
-package uk.gov.hmcts.s2s;
+package uk.gov.hmcts.payment.s2s;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
