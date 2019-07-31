@@ -14,8 +14,6 @@ deploy:
     repo: hmcts/ccpay-scheduled-jobs
     tags: true
 - provider: releases
-  api_key:
-    secure: 
   file_glob: true
   file: build/libs/scheduled-jobs-*.jar
   skip_cleanup: true

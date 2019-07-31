@@ -8,7 +8,7 @@ import org.jboss.aerogear.security.otp.Totp;
 
 public class S2STokenGeneration {
     private Totp totp;
-    private S2sTokenService s2sTokenService = new S2sTokenService();
+    //private S2sTokenService s2sTokenService = new S2sTokenService();
     
     public String generateOTP(String clientSecret, String authProviderServiceURL, String s2sClientId) throws Exception {
 
@@ -23,7 +23,7 @@ public class S2STokenGeneration {
                 .param("oneTimePassword", otp)
                 .post("/lease");
         System.out.println("Response Values---"+response.getBody().asString());
-        System.out.println("s2sTokenService---"+s2sTokenService);
+        //System.out.println("s2sTokenService---"+s2sTokenService);
         //System.out.println("Values---"+s2sTokenService.getS2sToken(s2sClientId,s2s));
         //String s2sToken = s2sTokenService.getS2sToken(s2sClientId,s2s);
 
