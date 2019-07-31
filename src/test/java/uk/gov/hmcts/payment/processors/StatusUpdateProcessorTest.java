@@ -1,13 +1,12 @@
 package uk.gov.hmcts.payment.processors;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static io.restassured.RestAssured.given;
 
 public class StatusUpdateProcessorTest {
 
@@ -19,7 +18,7 @@ public class StatusUpdateProcessorTest {
 
     @Test
     public void shouldReturnForbiddenForServiceAuthorizationFailure() {
-                 given()
+                RestAssured.given()
                 .relaxedHTTPSValidation().baseUri("http://localhost:8080").contentType(ContentType.JSON)
                 .headers(headers)
                 .when()
