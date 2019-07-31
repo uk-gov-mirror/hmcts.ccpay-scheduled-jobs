@@ -6,9 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.mockito.Matchers.anyString;
+import static org.mockito.ArgumentMatchers.anyString;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class JobProcessorFactoryTest {
@@ -17,9 +18,6 @@ public class JobProcessorFactoryTest {
     JobProcessorFactory jobProcessorFactory;
     @Mock
     StatusUpdateProcessor statusUpdateProcessor;
-
-    @Mock
-    private  JobProcessor jobProcessor;
 
     @Before
     public void setUp(){
@@ -33,7 +31,7 @@ public class JobProcessorFactoryTest {
 
     @Test
     public void shouldReturnJobTypeAsPerInput() {
-        Mockito.when(jobProcessorFactory.getJobType(anyString())).thenReturn(statusUpdateProcessor);
+       //Mockito.when(jobProcessorFactory.getJobType("status-update")).thenReturn(new StatusUpdateProcessor());
         Assert.assertNotNull(statusUpdateProcessor);
     }
 }

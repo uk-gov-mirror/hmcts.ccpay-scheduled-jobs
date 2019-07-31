@@ -28,7 +28,7 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-context', version: '5.1.8.RELEASE'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.9.9'
     compile group: 'io.github.openfeign', name: 'feign-jackson', version: '10.2.3'
-    testCompile group: 'org.mockito', name: 'mockito-core', version: '1.10.19'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
 }
 jar {
     manifest {
