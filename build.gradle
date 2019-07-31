@@ -31,25 +31,26 @@ dependencies {
     testCompile group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
 }
 jar {
-    manifest {
-        attributes(
-                'Main-Class': 'JobProcessorApplication',
-        )
+    archiveName 'scheduled-jobs.jar'
+    manifest { 
+        attributes  'Main-Class': 'JobProcessorApplication', 'Implementation-Title': project.name, 'Implementation-Version': project.version
     }
 }
 
-task fatJar(type: Jar) {
-    manifest.from jar.manifest
-    classifier = 'all'
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    } {
-        exclude "META-INF/*.SF"
-        exclude "META-INF/*.DSA"
-        exclude "META-INF/*.RSA"
+def pomConfig = {
+    licenses {
+        license {
+            name "MIT License"
+            url "http://www.opensource.org/licenses/mit-license.php"
+            distribution "repo"
+        }
     }
-    with jar
+
+    scm {
+        url "https://github.com/hmcts/ccpay-scheduled-jobs"
+    }
 }
+
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
@@ -100,4 +101,17 @@ bintray {
             name = project.version
         }
     }
+}
+
+task fatJar(type: Jar) {
+    manifest.from jar.manifest
+    classifier = 'all'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
 }
