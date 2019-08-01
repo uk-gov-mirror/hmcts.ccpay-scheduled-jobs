@@ -3,10 +3,10 @@ plugins {
     id 'maven'
     id 'maven-publish'
     id 'java-library'
-    id "com.jfrog.bintray" version "1.7.3"
+    id "com.jfrog.bintray" version "1.8.4"
 }
 group 'uk.gov.hmcts.reform.payment'
-version '1.0.5'
+version '1.0.6'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -60,7 +60,7 @@ publishing {
             artifact javadocJar
             groupId project.group
             artifactId 'ccpay-scheduled-jobs'
-            version '1.0.5'
+            version '1.0.6'
         }
     }
 }
@@ -76,7 +76,7 @@ bintray {
         licenses = ['MIT']
         vcsUrl = 'https://github.com/hmcts/ccpay-scheduled-jobs'
         version {
-            name = '1.0.5'
+            name = '1.0.6'
         }
     }
 }
