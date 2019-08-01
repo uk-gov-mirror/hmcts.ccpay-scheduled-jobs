@@ -6,7 +6,7 @@ plugins {
     id "com.jfrog.bintray" version "1.7.3"
 }
 group = 'uk.gov.hmcts.reform.payment'
-version '1.0.3'
+version '1.0.4'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -31,23 +31,9 @@ dependencies {
     testCompile group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
 }
 jar {
-    archiveName 'scheduled-jobs.jar'
+    archiveName 'ccpay-scheduled-jobs.jar'
     manifest { 
         attributes  'Main-Class': 'JobProcessorApplication', 'Implementation-Title': project.name, 'Implementation-Version': project.version
-    }
-}
-
-def pomConfig = {
-    licenses {
-        license {
-            name "MIT License"
-            url "http://www.opensource.org/licenses/mit-license.php"
-            distribution "repo"
-        }
-    }
-
-    scm {
-        url "https://github.com/hmcts/ccpay-scheduled-jobs"
     }
 }
 
@@ -73,8 +59,8 @@ publishing {
             artifact sourcesJar
             artifact javadocJar
             groupId project.group
-            artifactId 'scheduled-jobs'
-            version '1.0.3'
+            artifactId 'ccpay-scheduled-jobs'
+            version '1.0.4'
         }
     }
 }
