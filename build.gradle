@@ -6,7 +6,7 @@ plugins {
     id "com.jfrog.bintray" version "1.7.3"
 }
 group = 'uk.gov.hmcts.reform.payment'
-version '1.0.1'
+version '1.0.2'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -73,8 +73,8 @@ publishing {
             artifact sourcesJar
             artifact javadocJar
             groupId project.group
-            artifactId 'ccpay-scheduled-jobs'
-            version '1.0.1'
+            artifactId 'scheduled-jobs'
+            version '1.0.2'
 
             pom.withXml {
                 def root = asNode()
