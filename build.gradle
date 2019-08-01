@@ -73,8 +73,8 @@ publishing {
             artifact sourcesJar
             artifact javadocJar
             groupId project.group
-            artifactId 'scheduled-jobs'
-            version project.version
+            artifactId 'ccpay-scheduled-jobs'
+            version '1.0.0'
 
             pom.withXml {
                 def root = asNode()
