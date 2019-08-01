@@ -6,7 +6,7 @@ plugins {
     id "com.jfrog.bintray" version "1.7.3"
 }
 group = 'uk.gov.hmcts.reform.payment'
-version '1.0.2'
+version '1.0.3'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -74,15 +74,7 @@ publishing {
             artifact javadocJar
             groupId project.group
             artifactId 'scheduled-jobs'
-            version '1.0.2'
-
-            pom.withXml {
-                def root = asNode()
-                root.appendNode('description', 'library for creating cc-payments web jobs')
-                root.appendNode('name', 'CCPAY scheduled jobs')
-                root.appendNode('url', 'https://github.com/hmcts/ccpay-scheduled-jobs')
-                root.children().last() + pomConfig
-            }
+            version '1.0.3'
         }
     }
 }
