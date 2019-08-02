@@ -6,7 +6,7 @@ plugins {
     id "com.jfrog.bintray" version "1.8.4"
 }
 group 'uk.gov.hmcts.reform.payment'
-version '1.0.6'
+version '1.0.7'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -33,7 +33,7 @@ dependencies {
 jar {
     archiveName 'ccpay-scheduled-jobs.jar'
     manifest { 
-        attributes  'Main-Class': 'JobProcessorApplication', 'Implementation-Title': 'ccpay-scheduled-jobs', 'Implementation-Version': '1.0.5'
+        attributes  'Main-Class': 'JobProcessorApplication', 'Implementation-Title': 'ccpay-scheduled-jobs', 'Implementation-Version': '1.0.7'
     }
 }
 
@@ -60,7 +60,7 @@ publishing {
             artifact javadocJar
             groupId project.group
             artifactId 'ccpay-scheduled-jobs'
-            version '1.0.6'
+            version '1.0.7'
         }
     }
 }
@@ -76,7 +76,7 @@ bintray {
         licenses = ['MIT']
         vcsUrl = 'https://github.com/hmcts/ccpay-scheduled-jobs'
         version {
-            name = '1.0.6'
+            name = '1.0.7'
         }
     }
 }

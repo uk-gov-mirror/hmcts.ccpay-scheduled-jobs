@@ -13,13 +13,6 @@ deploy:
   on:
     repo: hmcts/ccpay-scheduled-jobs
     tags: true
-- provider: releases
-  file_glob: true
-  file: build/libs/scheduled-jobs-*.jar
-  skip_cleanup: true
-  on:
-    repo: hmcts/ccpay-scheduled-jobs
-    tags: true
 env:
   global:
   - secure: fjGRgLfKim2ZQjgXPJSlVozVZkvpXVn3yPqRD2tHs1pICR2D7NGXQgwJXezhZrDuzvd5tmh3nNtFHxnLqrI9maj9faCQZzeFYE652M9LE23kMGw58HzK51qYt96Y0Q3cI1kScHA/5NoaVbe+G/8n2oYOhBeOkL28wFyJ6YQAm/572sTawix7Ln9sS/w/jyZob44xmIduUEvzMmZJCRzDOxRsGcKy5ZG50ZGgBvPP9kvgGav92I22/3QghHujUDn8/gSUTS24NFqB8Kg5iVVhVPpuj0iw3W66iAeLnidH3wsQ+AzznmqVAMcne37VO5NPR9PMOPatgDUygDGf01iiJ8wXMgUgDok5tYbs6Z9fWI854hY5J2yKkNEenAZhDJFtIIn9/5rc9I2ZJ+NSO5ol1tOxw16y0ITnNFXI0te/QTv5IupgZUr3osHLJ7HrLZKIuF5NDkpk2UE7onpifPM/n3z7kNsYfSgiyuuWUt5xRrhVoR0vJA3rfHOeeAoSvMimPQaRd6AGVYiSl+F/MTN2BKXHIAOvuf+E4SsK4+3dcufclw1m0XoVYrV1vcq0EIGmMbkoXTKx2lakQoa8uLp5DCPj+PbZI+SprBYBJsBZzKGbW5RoLXiqJyYmJlZztgtA4Mtc9uxzowgKtvpt6h+sD4kJBTRhIdR1IuW574wJeF4=
