@@ -6,7 +6,7 @@ plugins {
     id "com.jfrog.bintray" version "1.8.4"
 }
 group 'uk.gov.hmcts.reform.payment'
-version '1.0.8'
+version '1.0.9'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -55,8 +55,6 @@ publishing {
     publications {
         Main(MavenPublication) {
             from components.java
-            artifact sourcesJar
-            artifact javadocJar
             artifact fatJar
             groupId project.group
             artifactId 'ccpay-scheduled-jobs'
@@ -83,7 +81,6 @@ bintray {
 
 task fatJar(type: Jar) {
     manifest.from jar.manifest
-    classifier = 'all'
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     } {
