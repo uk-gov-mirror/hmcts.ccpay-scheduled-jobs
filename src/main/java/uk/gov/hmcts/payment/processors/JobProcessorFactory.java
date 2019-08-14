@@ -10,6 +10,22 @@ public class JobProcessorFactory {
             return new StatusUpdateProcessor();
 
         }
+        if(jobType.equalsIgnoreCase("bar-csv-report")){
+            return new BarCsvReportProcessor();
+
+        }
+        if(jobType.equalsIgnoreCase("card-csv-report")){
+            return new CardCsvReportProcessor();
+
+        }
+        if(jobType.equalsIgnoreCase("pba-csv-report")){
+            return new PbaCsvReportProcessor();
+
+        }
+        if(jobType.equalsIgnoreCase("pba-finrem-weekly-csv-report")){
+            return new PbaFinremWeeklyCsvReportProcessor();
+
+        }
         return null;
     }
 }
