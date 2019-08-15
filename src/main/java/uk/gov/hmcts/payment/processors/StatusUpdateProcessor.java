@@ -14,8 +14,8 @@ public class StatusUpdateProcessor implements JobProcessor {
     @Override
     public void process(String serviceToken, String baseURL) {
 
-        LOG.error("Value in Impl-----"+serviceToken+"BaseURL--------"+baseURL);
-        System.out.println("Value in Impl-----"+serviceToken+"BaseURL--------"+baseURL);
+        LOG.error("serviceToken in StatusUpdateProcessor-----"+serviceToken+"BaseURL--------"+baseURL);
+        System.out.println("serviceToken in StatusUpdateProcessor-----"+serviceToken+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", serviceToken);
         RestAssured.given().relaxedHTTPSValidation().baseUri(baseURL).contentType(ContentType.JSON).headers(headers)
                 .patch("/jobs/card-payments-status-update");
