@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class PbaFinremWeeklyCsvReportProcessor implements JobProcessor {
 
-    private static final Logger LOG = LoggerFactory.getLogger(PbaCsvReportProcessor.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PbaFinremWeeklyCsvReportProcessor.class);
     private final Map<String, String> headers = new HashMap<>();
     @Override
     public void process(String serviceToken, String baseURL) {
