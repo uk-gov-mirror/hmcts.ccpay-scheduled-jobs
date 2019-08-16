@@ -1,8 +1,6 @@
 package uk.gov.hmcts.payment.s2s;
 
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.jboss.aerogear.security.otp.Totp;
 import org.json.JSONObject;
 
@@ -23,7 +21,7 @@ public class S2STokenGeneration {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("microservice", s2sClientId);
         jsonObject.put("oneTimePassword", otp);
-        return "Bearer " + RestAssured
+        return RestAssured
                 .given()
                 .header("Content-Type", "application/json")
                 .body(jsonObject.toString())
