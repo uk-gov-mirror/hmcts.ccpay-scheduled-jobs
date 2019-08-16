@@ -1,5 +1,3 @@
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 import uk.gov.hmcts.payment.processors.JobProcessor;
 import uk.gov.hmcts.payment.processors.JobProcessorFactory;
 import uk.gov.hmcts.payment.s2s.S2STokenGeneration;
@@ -9,7 +7,6 @@ import uk.gov.hmcts.payment.s2s.S2STokenGeneration;
 public class JobProcessorApplication {
 
     private JobProcessorFactory jobProcessorFactory = new JobProcessorFactory();
-    //private static final Logger LOG = LoggerFactory.getLogger(JobProcessorApplication.class);
     public static void main(String args[])
     {
         try {
@@ -22,16 +19,12 @@ public class JobProcessorApplication {
         }
         catch(Exception ex)
         {
-            //LOG.error("Application crashed with error message: ", ex);
             System.out.println("Application crashed with error message:-----"+ex);
         }
 
     }
 
     public void getJobProcessor(String baseURL, String jobType, String s2sToken) {
-/*        LOG.error("baseURL--------"+baseURL+
-                "jobType"+jobType+
-                "s2sToken"+s2sToken);*/
         System.out.println("baseURL--------"+baseURL+
                 "jobType"+jobType+
                 "s2sToken"+s2sToken);

@@ -6,19 +6,13 @@ import io.restassured.http.ContentType;
 import java.util.HashMap;
 import java.util.Map;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-
 public class PbaCsvReportProcessor implements JobProcessor {
 
-    //private static final Logger LOG = LoggerFactory.getLogger(PbaCsvReportProcessor.class);
     private final Map<String, String> headers = new HashMap<>();
 
     @Override
     public void process(String serviceToken, String baseURL) {
 
-
-        //LOG.error("Value in Impl-----"+serviceToken+"BaseURL--------"+baseURL);
         System.out.println("Value in Impl-----"+serviceToken+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
