@@ -13,7 +13,10 @@ public class StatusUpdateProcessor implements JobProcessor {
 
         System.out.println("serviceToken in StatusUpdateProcessor-----"+serviceToken+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", "Bearer "+serviceToken);
-        RestAssured.given().relaxedHTTPSValidation().baseUri(baseURL).contentType(ContentType.JSON).headers(headers)
+        RestAssured.given().relaxedHTTPSValidation()
+                .baseUri(baseURL)
+                .contentType(ContentType.JSON)
+                .headers(headers)
                 .patch("/jobs/card-payments-status-update");
     }
 }
