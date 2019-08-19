@@ -2,7 +2,6 @@ package uk.gov.hmcts.payment.processors;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,38 +15,24 @@ public class PbaCsvReportProcessor implements JobProcessor {
 
         System.out.println("Value in PbaCsvReportProcessor-----"+serviceToken+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", "Bearer "+serviceToken);
-        String [] serviceName = {"CMC","DIVORCE","FINREM","PROBATE"};
-        JSONObject jsonObjectCmc = new JSONObject();
-        jsonObjectCmc.put("service_name", serviceName[0]);
         RestAssured.given().relaxedHTTPSValidation()
-                .baseUri(baseURL)
                 .contentType(ContentType.JSON)
-                .body(jsonObjectCmc.toString())
                 .headers(headers)
-                .post("/jobs/email-pay-reports");
-        JSONObject jsonObjectDivorce = new JSONObject();
-        jsonObjectDivorce.put("service_name", serviceName[1]);
+                .post(baseURL+"/jobs/email-pay-reports?serviceName=CMC");
+
         RestAssured.given().relaxedHTTPSValidation()
-                .baseUri(baseURL)
                 .contentType(ContentType.JSON)
-                .body(jsonObjectDivorce.toString())
                 .headers(headers)
-                .post("/jobs/email-pay-reports");
-        JSONObject jsonObjectFinRem = new JSONObject();
-        jsonObjectFinRem.put("service_name", serviceName[2]);
+                .post(baseURL+"/jobs/email-pay-reports?serviceName=DIVORCE");
+
         RestAssured.given().relaxedHTTPSValidation()
-                .baseUri(baseURL)
                 .contentType(ContentType.JSON)
-                .body(jsonObjectFinRem.toString())
                 .headers(headers)
-                .post("/jobs/email-pay-reports");
-        JSONObject jsonObjectProbate = new JSONObject();
-        jsonObjectProbate.put("service_name", serviceName[3]);
+                .post(baseURL+"/jobs/email-pay-reports?serviceName=FINREM");
+
         RestAssured.given().relaxedHTTPSValidation()
-                .baseUri(baseURL)
                 .contentType(ContentType.JSON)
-                .body(jsonObjectProbate.toString())
                 .headers(headers)
-                .post("/jobs/email-pay-reports");
+                .post(baseURL+"/jobs/email-pay-reports?serviceName=PROBATE");
     }
 }

@@ -10,7 +10,7 @@ public class JobProcessorApplication {
     public static void main(String args[])
     {
         try {
-            System.out.println("Inside main method----");
+            System.out.println("Job started----");
             JobProcessorApplication application = new JobProcessorApplication();
             S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
             String s2sToken = s2STokenGeneration.generateOTP(args[0],args[1],args[2]);
@@ -30,6 +30,7 @@ public class JobProcessorApplication {
                 "s2sToken"+s2sToken);
         JobProcessor jobProcessor =  jobProcessorFactory.getJobType(jobType);
         jobProcessor.process(s2sToken,baseURL);
+        System.out.println("Job completed successfully----");
     }
 
 }

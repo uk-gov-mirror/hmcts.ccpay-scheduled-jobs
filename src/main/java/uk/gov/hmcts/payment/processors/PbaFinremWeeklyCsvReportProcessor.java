@@ -2,7 +2,6 @@ package uk.gov.hmcts.payment.processors;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import org.json.JSONObject;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,15 +18,9 @@ public class PbaFinremWeeklyCsvReportProcessor implements JobProcessor {
         String date = LocalDateTime.now().minusDays(7).format(formatter);
         System.out.println("Value in PbaFinremWeeklyCsvReportProcessor-----"+serviceToken+"BaseURL--------"+baseURL+"Date-----"+date);
         headers.put("ServiceAuthorization", "Bearer "+serviceToken);
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("payment_method", "PBA");
-        jsonObject.put("service_name", "FINREM");
-        jsonObject.put("start_date", date);
         RestAssured.given().relaxedHTTPSValidation()
-                .baseUri(baseURL)
                 .contentType(ContentType.JSON)
-                .body(jsonObject.toString())
                 .headers(headers)
-                .post("/jobs/email-pay-reports");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=FINREM&start_date="+date);
     }
 }
