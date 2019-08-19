@@ -14,14 +14,13 @@ public class CardCsvReportProcessor implements JobProcessor {
     public void process(String serviceToken, String baseURL) {
 
         System.out.println("Value in CardCsvReportProcessor-----"+serviceToken+"BaseURL--------"+baseURL);
-        headers.put("ServiceAuthorization", serviceToken);
+        headers.put("ServiceAuthorization", "Bearer "+serviceToken);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("payment_method", "CARD");
         RestAssured.given().relaxedHTTPSValidation()
-                .baseUri(baseURL)
                 .contentType(ContentType.JSON)
                 .body(jsonObject.toString())
                 .headers(headers)
-                .post("/jobs/email-pay-reports");
+                .post(baseURL+"/jobs/email-pay-reports");
     }
 }

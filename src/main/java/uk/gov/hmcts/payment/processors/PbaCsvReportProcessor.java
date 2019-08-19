@@ -15,7 +15,7 @@ public class PbaCsvReportProcessor implements JobProcessor {
     public void process(String serviceToken, String baseURL) {
 
         System.out.println("Value in PbaCsvReportProcessor-----"+serviceToken+"BaseURL--------"+baseURL);
-        headers.put("ServiceAuthorization", serviceToken);
+        headers.put("ServiceAuthorization", "Bearer "+serviceToken);
         String [] serviceName = {"CMC","DIVORCE","FINREM","PROBATE"};
         JSONObject jsonObjectCmc = new JSONObject();
         jsonObjectCmc.put("service_name", serviceName[0]);
