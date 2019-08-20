@@ -10,9 +10,9 @@ public class JobProcessorApplication {
     public static void main(String args[])
     {
         try {
-            System.out.println("Job started----");
+            System.out.println("Job started----"+args[0]);
             JobProcessorApplication application = new JobProcessorApplication();
-            if(args[0] == "PRODUCTION") {
+            if(args[0].trim().equalsIgnoreCase("PRODUCTION")) {
                 System.out.println("App slot is supported----");
                 S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
                 String s2sToken = s2STokenGeneration.generateOTP(args[1], args[2], args[3]);
