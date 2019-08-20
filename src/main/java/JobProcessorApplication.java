@@ -12,10 +12,17 @@ public class JobProcessorApplication {
         try {
             System.out.println("Job started----");
             JobProcessorApplication application = new JobProcessorApplication();
-            S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
-            String s2sToken = s2STokenGeneration.generateOTP(args[0],args[1],args[2]);
-            System.out.println("s2sToken-----"+s2sToken);
-            application.getJobProcessor(args[3], args[4],s2sToken);
+            if(args[0] == "PRODUCTION") {
+                System.out.println("App slot is supported----");
+                S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
+                String s2sToken = s2STokenGeneration.generateOTP(args[1], args[2], args[3]);
+                System.out.println("s2sToken-----" + s2sToken);
+                application.getJobProcessor(args[4], args[5], s2sToken);
+            }
+            else
+            {
+                throw new IllegalArgumentException("Unsupported app slot to run this application"+args[0]);
+            }
         }
         catch(Exception ex)
         {
