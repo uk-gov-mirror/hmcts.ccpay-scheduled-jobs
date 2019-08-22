@@ -2,8 +2,6 @@ package uk.gov.hmcts.payment.processors;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,13 +10,12 @@ import java.util.Map;
 
 public class PbaFinremWeeklyCsvReportProcessor implements JobProcessor {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private static final Logger LOG = LoggerFactory.getLogger(PbaFinremWeeklyCsvReportProcessor.class);
     private final Map<String, String> headers = new HashMap<>();
     @Override
     public void process(String serviceToken, String baseURL) {
 
         String date = LocalDateTime.now().minusDays(7).format(formatter);
-        LOG.info("Value in PbaFinremWeeklyCsvReportProcessor-----"+"BaseURL--------"+baseURL+"Date-----"+date);
+        System.out.println("Value in PbaFinremWeeklyCsvReportProcessor-----"+"BaseURL--------"+baseURL+"Date-----"+date);
         headers.put("ServiceAuthorization", "Bearer "+serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
