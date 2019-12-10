@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class S2STokenGeneration {
     private Totp totp;
     
-    public String generateOTP(String clientSecret, String authProviderServiceURL, String s2sClientId) throws Exception {
+    public String generateOTP(String clientSecret, String authProviderServiceURL, String s2sClientId){
 
         totp = new Totp(clientSecret);
         String otp = totp.now();
