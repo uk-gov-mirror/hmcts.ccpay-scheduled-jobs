@@ -1,5 +1,5 @@
 # ccpay-scheduled-jobs
-This repository is used to trigger the web jobs. This JAR has to be included as a dependency in **build.gradle** file of **ccpay-payment-app** module.
+This repository is used to trigger the web jobs. This JAR has to be included as a dependency in **build.gradle** file of **ccpay-payment-app** module..
 
 ## Endpoint Details
 
