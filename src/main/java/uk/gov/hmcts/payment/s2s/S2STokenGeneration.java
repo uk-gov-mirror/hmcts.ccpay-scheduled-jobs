@@ -13,9 +13,6 @@ public class S2STokenGeneration {
         totp = new Totp(clientSecret);
         String otp = totp.now();
 
-        System.out.println("authProviderServiceURL---"+authProviderServiceURL+
-                "otp---"+otp);
-
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("microservice", s2sClientId);
         jsonObject.put("oneTimePassword", otp);

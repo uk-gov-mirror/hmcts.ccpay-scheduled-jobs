@@ -10,8 +10,6 @@ public class CardCsvReportProcessor implements JobProcessor {
     private final Map<String, String> headers = new HashMap<>();
     @Override
     public void process(String serviceToken, String baseURL) {
-
-        System.out.println("Value in CardCsvReportProcessor-----"+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", "Bearer "+serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)

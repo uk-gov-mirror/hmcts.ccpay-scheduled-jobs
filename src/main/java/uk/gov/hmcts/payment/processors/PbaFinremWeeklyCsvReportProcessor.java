@@ -13,9 +13,7 @@ public class PbaFinremWeeklyCsvReportProcessor implements JobProcessor {
     private final Map<String, String> headers = new HashMap<>();
     @Override
     public void process(String serviceToken, String baseURL) {
-
         String date = LocalDateTime.now().minusDays(7).format(formatter);
-        System.out.println("Value in PbaFinremWeeklyCsvReportProcessor-----"+"BaseURL--------"+baseURL+"Date-----"+date);
         headers.put("ServiceAuthorization", "Bearer "+serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
