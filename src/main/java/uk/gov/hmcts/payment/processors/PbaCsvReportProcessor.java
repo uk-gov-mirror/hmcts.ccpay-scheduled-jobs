@@ -32,5 +32,10 @@ public class PbaCsvReportProcessor implements JobProcessor {
                 .contentType(ContentType.JSON)
                 .headers(headers)
                 .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=PROBATE");
+
+        RestAssured.given().relaxedHTTPSValidation()
+                .contentType(ContentType.JSON)
+                .headers(headers)
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=FPL");
     }
 }
