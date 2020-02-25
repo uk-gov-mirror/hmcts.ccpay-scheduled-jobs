@@ -2,9 +2,11 @@ import uk.gov.hmcts.payment.processors.JobProcessor;
 import uk.gov.hmcts.payment.processors.JobProcessorFactory;
 import uk.gov.hmcts.payment.s2s.S2STokenGeneration;
 
+import java.util.logging.Logger;
 
 
 public class JobProcessorApplication {
+    private static final Logger LOG = Logger.getLogger(JobProcessorApplication.class.getName());
     private JobProcessorFactory jobProcessorFactory = new JobProcessorFactory();
     public static void main(String args[])
     {
@@ -22,14 +24,17 @@ public class JobProcessorApplication {
         }
         catch(Exception ex)
         {
-              //Exception has to be sent.
+            LOG.info("Application crashed with error message:-----"+ex);
         }
 
     }
 
     public void getJobProcessor(String baseURL, String jobType, String s2sToken) {
+        LOG.info("baseURL--------"+baseURL+
+                "jobType"+jobType);
         JobProcessor jobProcessor =  jobProcessorFactory.getJobType(jobType);
         jobProcessor.process(s2sToken,baseURL);
+        LOG.info("Job completed successfully----");
     }
 
 }
