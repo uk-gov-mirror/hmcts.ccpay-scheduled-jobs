@@ -10,11 +10,16 @@ public class JobProcessorApplication {
     private JobProcessorFactory jobProcessorFactory = new JobProcessorFactory();
     public static void main(String args[])
     {
+
         try {
+            LOG.info("Job started----");
+            LOG.info("Slot----"+args[0]);
             JobProcessorApplication application = new JobProcessorApplication();
             if(args[0].trim().equalsIgnoreCase("PRODUCTION")) {
+                LOG.info("App slot is supported----");
                 S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
                 String s2sToken = s2STokenGeneration.generateOTP(args[1], args[2], args[3]);
+                LOG.info("s2sToken is generated");
                 application.getJobProcessor(args[4], args[5], s2sToken);
             }
             else
