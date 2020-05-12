@@ -1,4 +1,4 @@
-name: plum-batch
+name: payment-jobs
 home: https://github.com/hmcts/ccpay-scheduled-jobs
 version: 0.0.1
 description: HMCTS CCPAY Scheduled Jobs
