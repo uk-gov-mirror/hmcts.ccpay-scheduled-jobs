@@ -1,0 +1,6 @@
+job:
+  image: hmctspublic.azurecr.io/hmcts/payment-jobs:latest
+  schedule: "*/1 * * * *"
+global:
+  job:
+    kind: CronJob
