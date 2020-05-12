@@ -27,6 +27,13 @@ dependencies {
     compile group: 'org.json', name: 'json', version: '20140107'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
 }
+
+dependencyCheck {
+    failBuildOnCVSS = 0
+    suppressionFile = 'dependency-check-suppressions.xml'
+    format='ALL'
+}
+
 jar {
     manifest { 
         attributes  'Main-Class': 'JobProcessorApplication', 'Implementation-Title': project.name, 'Implementation-Version': project.version

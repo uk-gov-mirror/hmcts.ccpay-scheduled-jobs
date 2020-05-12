@@ -9,5 +9,4 @@ def component = "jobs"
 withPipeline(type, product, component) {
   disableLegacyDeployment()
   nonServiceApp()
-
 }
