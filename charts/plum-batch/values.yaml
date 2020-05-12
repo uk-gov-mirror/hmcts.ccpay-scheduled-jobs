@@ -1,0 +1,6 @@
+job:
+  image: hmctssandbox.azurecr.io/hmcts/ccpay-scheduled-jobs:latest
+  schedule: "*/1 * * * *"
+global:
+  job:
+    kind: CronJob
