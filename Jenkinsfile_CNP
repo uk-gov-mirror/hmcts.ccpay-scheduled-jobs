@@ -7,7 +7,6 @@ def product = "payment"
 def component = "jobs"
 
 withPipeline(type, product, component) {
-  installCharts()
   disableLegacyDeployment()
   nonServiceApp()
 
