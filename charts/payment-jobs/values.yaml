@@ -1,5 +1,5 @@
 job:
-  image: hmctspublic.azurecr.io/hmcts/ccpay-scheduled-jobs:latest
+  image: hmctspublic.azurecr.io/hmcts/payment-jobs:latest
   schedule: "*/1 * * * *"
 global:
   job:
