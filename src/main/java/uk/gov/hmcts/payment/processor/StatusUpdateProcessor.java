@@ -1,4 +1,4 @@
-package uk.gov.hmcts.payment.processors;
+package uk.gov.hmcts.payment.processor;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

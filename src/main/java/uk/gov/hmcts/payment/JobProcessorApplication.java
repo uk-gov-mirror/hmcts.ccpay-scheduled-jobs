@@ -1,5 +1,7 @@
-import uk.gov.hmcts.payment.processors.JobProcessor;
-import uk.gov.hmcts.payment.processors.JobProcessorFactory;
+package uk.gov.hmcts.payment;
+
+import uk.gov.hmcts.payment.processor.JobProcessor;
+import uk.gov.hmcts.payment.processor.JobProcessorFactory;
 import uk.gov.hmcts.payment.s2s.S2STokenGeneration;
 
 import java.util.logging.Logger;
