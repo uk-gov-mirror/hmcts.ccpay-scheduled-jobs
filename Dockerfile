@@ -1,6 +1,4 @@
-FROM hmcts/cnp-java-base:openjdk-8u191-jre-alpine3.9-1.0
-
-ENV JAVA_OPTS ""
+FROM hmctspublic.azurecr.io/base/java:openjdk-8-distroless-1.4
 
 COPY build/libs/ccpay-scheduled-jobs-1.2.7.jar /opt/app/
 

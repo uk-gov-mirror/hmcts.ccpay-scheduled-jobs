@@ -3,8 +3,13 @@ plugins {
     id 'maven'
     id 'maven-publish'
     id 'java-library'
+    id 'jacoco'
     id "com.jfrog.bintray" version "1.8.4"
+    id 'org.owasp.dependencycheck' version '5.2.4'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'org.sonarqube' version '2.8'
 }
+
 group 'uk.gov.hmcts.reform.payment'
 version '1.2.7'
 
@@ -22,11 +27,44 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.7'
+    compile group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
     compile group: 'org.jboss.aerogear', name: 'aerogear-otp-java', version:'1.0.0'
     compile group: 'org.json', name: 'json', version: '20140107'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
 }
+
+jacocoTestReport {
+  executionData(test)
+  reports {
+    xml.enabled = true
+    csv.enabled = false
+    xml.destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
+  }
+}
+
+project.tasks['sonarqube'].dependsOn jacocoTestReport
+
+sonarqube {
+  properties {
+    property "sonar.projectName", "Reform :: payment-jobs"
+    property "sonar.projectKey", "uk.gov.hmcts.reform:payment-jobs"
+    property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
+  }
+}
+
+
+dependencyCheck {
+  // Specifies if the build should be failed if a CVSS score above a specified level is identified.
+  // range of 0-10 fails the build, anything greater and it doesn't fail the build
+  failBuildOnCVSS = System.getProperty('dependencyCheck.failBuild') == 'true' ? 0 : 11
+  suppressionFile = 'config/owasp/suppressions.xml'
+
+  analyzers {
+    // Disable scanning of .NET related binaries
+    assemblyEnabled = false
+  }
+}
+
 jar {
     manifest { 
         attributes  'Main-Class': 'JobProcessorApplication', 'Implementation-Title': project.name, 'Implementation-Version': project.version
@@ -51,10 +89,11 @@ artifacts {
 publishing {
     publications {
         Main(MavenPublication) {
-            artifact fatJar
+            artifactId = 'fatJar'
         }
     }
 }
+
 bintray {
     user = System.getenv('BINTRAY_USER')
     key = System.getenv('BINTRAY_KEY')
