@@ -1,6 +1,9 @@
 import uk.gov.hmcts.payment.processors.JobProcessor;
 import uk.gov.hmcts.payment.processors.JobProcessorFactory;
 import uk.gov.hmcts.payment.s2s.S2STokenGeneration;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import java.util.logging.Logger;
 
@@ -15,12 +18,14 @@ public class JobProcessorApplication {
             LOG.info("Job started----");
             LOG.info("Slot----"+args[0]);
             JobProcessorApplication application = new JobProcessorApplication();
+            String client_id = new String(Files.readAllBytes(Paths.get("mnt/secrets/s2s/gateway-s2s-client-id")));
+            String client_secret = new String(Files.readAllBytes(Paths.get("mnt/secrets/s2s/gateway-s2s-client-secret")));
             if(args[0].trim().equalsIgnoreCase("PRODUCTION")) {
                 LOG.info("App slot is supported----");
                 S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
-                String s2sToken = s2STokenGeneration.generateOTP(args[1], args[2], args[3]);
+                String s2sToken = s2STokenGeneration.generateOTP(client_secret, args[1], client_id);
                 LOG.info("s2sToken is generated");
-                application.getJobProcessor(args[4], args[5], s2sToken);
+                application.getJobProcessor(args[2], args[3], s2sToken);
             }
             else
             {
