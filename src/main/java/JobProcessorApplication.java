@@ -17,8 +17,10 @@ public class JobProcessorApplication {
         try {
             LOG.info("Job started----");
             JobProcessorApplication application = new JobProcessorApplication();
+            LOG.info("Adding secrets----");
             String clientId = new String(Files.readAllBytes(Paths.get("/mnt/secrets/ccpay/gateway-s2s-client-id")));
             String clientSecret = new String(Files.readAllBytes(Paths.get("/mnt/secrets/ccpay/gateway-s2s-client-secret")));
+            LOG.info("Secrets added----");
             S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
             String s2sURL = System.getenv("S2S_URL");
             String paymentServerURL = System.getenv("PAYMENT_SERVER_URL");
