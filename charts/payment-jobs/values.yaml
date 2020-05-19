@@ -1,11 +1,10 @@
 job:
   image: hmctspublic.azurecr.io/hmcts/payment-jobs:latest
   schedule: "*/1 * * * *"
-  environment: 
-    SLOT: Production
-    AUTH_PROVIDER_SERVICE_CLIENT_BASEURL: dummy 
-    PAYMENT_SERVER_URL: dummy
-    REPORT_NAME: dummy
+  environment:
+    AUTH_PROVIDER_SERVICE_CLIENT_BASEURL: http://rpe-service-auth-provider-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
+    PAYMENT_SERVER_URL: http://payment-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
+    REPORT_NAME: {{ .Values.global.report_name}}-csv-report
   keyVaults:
     "ccpay":
       secrets:

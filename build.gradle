@@ -11,7 +11,6 @@ plugins {
 }
 
 group 'uk.gov.hmcts.reform.payment'
-version '1.2.8'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -90,23 +89,6 @@ publishing {
     publications {
         Main(MavenPublication) {
             artifactId = 'fatJar'
-        }
-    }
-}
-
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
-    publications = ['Main']
-    publish = true
-    pkg {
-        repo = 'hmcts-maven'
-        name = 'ccpay-scheduled-jobs'
-        userOrg = 'hmcts'
-        licenses = ['MIT']
-        vcsUrl = 'https://github.com/hmcts/ccpay-scheduled-jobs'
-        version {
-            name = project.version
         }
     }
 }
