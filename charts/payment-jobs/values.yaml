@@ -1,6 +1,16 @@
 job:
   image: hmctspublic.azurecr.io/hmcts/payment-jobs:latest
   schedule: "*/1 * * * *"
+  environment: 
+    SLOT: Production
+    AUTH_PROVIDER_SERVICE_CLIENT_BASEURL: dummy 
+    PAYMENT_SERVER_URL: dummy
+    REPORT_NAME: dummy
+  keyVaults:
+    "ccpay":
+      secrets:
+        - gateway-s2s-client-id
+        - gateway-s2s-client-secret
 global:
   job:
     kind: CronJob

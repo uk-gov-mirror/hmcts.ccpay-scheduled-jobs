@@ -1,10 +1,10 @@
 import uk.gov.hmcts.payment.processors.JobProcessor;
 import uk.gov.hmcts.payment.processors.JobProcessorFactory;
 import uk.gov.hmcts.payment.s2s.S2STokenGeneration;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -16,25 +16,20 @@ public class JobProcessorApplication {
 
         try {
             LOG.info("Job started----");
-            LOG.info("Slot----"+args[0]);
             JobProcessorApplication application = new JobProcessorApplication();
-            String client_id = new String(Files.readAllBytes(Paths.get("mnt/secrets/s2s/gateway-s2s-client-id")));
-            String client_secret = new String(Files.readAllBytes(Paths.get("mnt/secrets/s2s/gateway-s2s-client-secret")));
-            if(args[0].trim().equalsIgnoreCase("PRODUCTION")) {
-                LOG.info("App slot is supported----");
-                S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
-                String s2sToken = s2STokenGeneration.generateOTP(client_secret, args[1], client_id);
-                LOG.info("s2sToken is generated");
-                application.getJobProcessor(args[2], args[3], s2sToken);
-            }
-            else
-            {
-                throw new IllegalArgumentException("Unsupported app slot to run this application"+args[0]);
-            }
+            String clientId = new String(Files.readAllBytes(Paths.get("/mnt/secrets/ccpay/gateway-s2s-client-id")));
+            String clientSecret = new String(Files.readAllBytes(Paths.get("/mnt/secrets/ccpay/gateway-s2s-client-secret")));
+            S2STokenGeneration s2STokenGeneration = new S2STokenGeneration();
+            String s2sURL = System.getenv("S2S_URL");
+            String paymentServerURL = System.getenv("PAYMENT_SERVER_URL");
+            String reportName = System.getenv("REPORT_NAME");
+            String s2sToken = s2STokenGeneration.generateOTP(clientSecret, s2sURL, clientId);
+            LOG.info("s2sToken is generated");
+            application.getJobProcessor(paymentServerURL, reportName, s2sToken);
         }
         catch(Exception ex)
         {
-            LOG.info("Application crashed with error message:-----"+ex);
+            LOG.log(Level.SEVERE,"Application crashed with error message:-----", ex);
         }
 
     }
