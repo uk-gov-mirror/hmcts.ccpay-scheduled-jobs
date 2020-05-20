@@ -17,10 +17,7 @@ public class JobProcessorConfiguration {
     public JobProcessorConfiguration(EnvironmentVariableRetriever envVarRetriever) {
         this.s2sUrl = envVarRetriever.get("S2S_URL");
         this.payUrl = envVarRetriever.get("PAYMENT_SERVER_URL");
-        requireNonNull(payUrl, "PAYMENT_SERVER_URL environment variable is required");
-
         this.reportName = envVarRetriever.get("REPORT_NAME");
-        requireNonNull(reportName, "REPORT_NAME environment variable is required");
 
         String mountPath = envVarRetriever
                 .get("VOLUME_PATH", "/mnt/secrets/ccpay/");
