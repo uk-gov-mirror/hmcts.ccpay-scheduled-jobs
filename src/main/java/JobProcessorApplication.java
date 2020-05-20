@@ -13,7 +13,6 @@ public class JobProcessorApplication {
     private JobProcessorFactory jobProcessorFactory = new JobProcessorFactory();
     public static void main(String args[])
     {
-
         try {
             LOG.info("Job started----");
             JobProcessorApplication application = new JobProcessorApplication();
