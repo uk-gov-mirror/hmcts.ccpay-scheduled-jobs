@@ -17,7 +17,7 @@ public class PbaFinremWeeklyCsvReportProcessor implements JobProcessor {
     public void process(String serviceToken, String baseURL) {
         String date = LocalDateTime.now().minusDays(7).format(formatter);
         LOG.info("Value in PbaFinremWeeklyCsvReportProcessor-----"+"BaseURL--------"+baseURL+"Date-----"+date);
-        headers.put("ServiceAuthorization", "Bearer "+serviceToken);
+        headers.put("ServiceAuthorization", serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)

@@ -3,6 +3,7 @@ package uk.gov.hmcts.payment.processors;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
+import io.restassured.response.Response;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -15,7 +16,7 @@ public class BarCsvReportProcessor implements JobProcessor {
     @Override
     public void process(String serviceToken, String baseURL) {
         LOG.info("Value in BarCsvReportProcessor-----"+"BaseURL--------"+baseURL);
-        headers.put("ServiceAuthorization", "Bearer "+serviceToken);
+        headers.put("ServiceAuthorization", serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)

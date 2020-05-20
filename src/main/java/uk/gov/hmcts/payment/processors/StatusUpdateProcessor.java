@@ -14,7 +14,7 @@ public class StatusUpdateProcessor implements JobProcessor {
     public void process(String serviceToken, String baseURL) {
 
         LOG.info("Value in StatusUpdateProcessor-----"+"BaseURL--------"+baseURL);
-        headers.put("ServiceAuthorization", "Bearer "+serviceToken);
+        headers.put("ServiceAuthorization", serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .baseUri(baseURL)
                 .contentType(ContentType.JSON)

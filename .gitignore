@@ -8,3 +8,4 @@ out/
 bin/
 charts/payment-jobs/requirements.lock
 *.tgz
+secrets/

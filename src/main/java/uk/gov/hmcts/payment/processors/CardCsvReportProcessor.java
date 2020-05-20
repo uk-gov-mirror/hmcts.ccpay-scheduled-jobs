@@ -13,7 +13,7 @@ public class CardCsvReportProcessor implements JobProcessor {
     public void process(String serviceToken, String baseURL) {
 
         LOG.info("Value in CardCsvReportProcessor-----"+"BaseURL--------"+baseURL);
-        headers.put("ServiceAuthorization", "Bearer "+serviceToken);
+        headers.put("ServiceAuthorization", serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
