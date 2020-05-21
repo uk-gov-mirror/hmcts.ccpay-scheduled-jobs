@@ -46,4 +46,9 @@ public class MockJobProcessorConfiguration extends JobProcessorConfiguration {
     public String getPayUrl() {
         return this.payUrl;
     }
+
+    @Override
+    public String getReportName() {
+        return "bar-csv-report";
+    }
 }
