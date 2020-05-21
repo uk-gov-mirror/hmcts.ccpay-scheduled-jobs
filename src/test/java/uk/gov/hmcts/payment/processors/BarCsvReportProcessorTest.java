@@ -9,7 +9,7 @@ class BarCsvReportProcessorTest extends BaseIntegrationTest {
     @Test
     void happyPathSucceeds() {
         stubForS2s();
-        stubForEmailPayReports("DIGITAL_BAR");
+        stubForEmailPayReportsWithService("DIGITAL_BAR");
         
         JobProcessorConfiguration configuration = new MockJobProcessorConfiguration(
                 "http://localhost:" + s2sWiremock.port(),
@@ -18,7 +18,7 @@ class BarCsvReportProcessorTest extends BaseIntegrationTest {
         
         String s2sToken = new S2SHelper(configuration).generateToken();
         
-        BarCsvReportProcessor barCsvReportProcessor = new BarCsvReportProcessor();
-        assertDoesNotThrow(() -> barCsvReportProcessor.process(s2sToken, configuration.getPayUrl()));
+        BarCsvReportProcessor processor = new BarCsvReportProcessor();
+        assertDoesNotThrow(() -> processor.process(s2sToken, configuration.getPayUrl()));
     }
 }

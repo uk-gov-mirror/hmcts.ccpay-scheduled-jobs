@@ -13,8 +13,8 @@
     <appender-ref ref="STDOUT" />
   </logger>
   
-  <!-- TODO move to info before merge -->
-  <logger level="debug" name="org.apache.http.wire">
+<!--  change to debug to see http level information-->
+  <logger level="info" name="org.apache.http.wire">
     <appender-ref ref="STDOUT" />
   </logger>
 </configuration>

@@ -38,7 +38,8 @@ public class MockJobProcessorConfiguration extends JobProcessorConfiguration {
 
     @Override
     public String getS2sSecret() {
-        return System.getenv("S2S_SECRET");
+        // dummy secret:
+        return "UIEAKQOHFQUYFLTJ";
     }
 
     @Override
