@@ -1,3 +1,5 @@
+package uk.gov.hmcts.payment;
+
 import org.junit.jupiter.api.Test;
 import uk.gov.hmcts.payment.processors.BarCsvReportProcessor;
 import uk.gov.hmcts.payment.processors.BaseIntegrationTest;
@@ -7,7 +9,7 @@ import uk.gov.hmcts.payment.processors.S2SHelper;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class JobProcessorApplicationTest extends BaseIntegrationTest {
+class JobProcessorRunnerTest extends BaseIntegrationTest {
 
     @Test
     void runCompletes() {
@@ -19,6 +21,6 @@ class JobProcessorApplicationTest extends BaseIntegrationTest {
                 "http://localhost:" + payWiremock.port()
         );
         
-        assertDoesNotThrow(() -> JobProcessorApplication.run(configuration));
+        assertDoesNotThrow(() -> JobProcessorRunner.run(configuration));
     }
 }
