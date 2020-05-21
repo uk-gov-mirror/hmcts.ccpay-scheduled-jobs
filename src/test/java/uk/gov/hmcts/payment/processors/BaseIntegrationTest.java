@@ -8,6 +8,9 @@ import org.junit.jupiter.api.BeforeEach;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.patch;
+import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 
 public class BaseIntegrationTest {
@@ -41,7 +44,7 @@ public class BaseIntegrationTest {
     }
     
     protected void stubForS2s() {
-        s2sWiremock.stubFor(WireMock.post("/lease")
+        s2sWiremock.stubFor(post("/lease")
                 .withHeader(CONTENT_TYPE, containing(JSON_CONTENT_TYPE))
                 .willReturn(aResponse()
                         .withStatus(200)
@@ -52,7 +55,7 @@ public class BaseIntegrationTest {
     }
     
     protected void stubForEmailPayReportsWithService(String serviceName) {
-        payWiremock.stubFor(WireMock.post("/jobs/email-pay-reports?service_name=" + serviceName)
+        payWiremock.stubFor(post("/jobs/email-pay-reports?service_name=" + serviceName)
                 .withHeader(CONTENT_TYPE, containing(JSON_CONTENT_TYPE))
                 .withHeader(S2S_AUTHORIZATION_HEADER, equalTo(DUMMY_BEARER_TOKEN_WITH_BEARER))
                 .willReturn(aResponse()
@@ -62,7 +65,7 @@ public class BaseIntegrationTest {
     }
 
     protected void stubForEmailPayReports(String paymentMethod, String serviceName) {
-        payWiremock.stubFor(WireMock.post("/jobs/email-pay-reports?payment_method=" + paymentMethod +"&service_name=" + serviceName)
+        payWiremock.stubFor(post("/jobs/email-pay-reports?payment_method=" + paymentMethod +"&service_name=" + serviceName)
                 .withHeader(CONTENT_TYPE, containing(JSON_CONTENT_TYPE))
                 .withHeader(S2S_AUTHORIZATION_HEADER, equalTo(DUMMY_BEARER_TOKEN_WITH_BEARER))
                 .willReturn(aResponse()
@@ -72,7 +75,7 @@ public class BaseIntegrationTest {
     }
 
     protected void stubForEmailPayReports(String paymentMethod, String serviceName, String startDate) {
-        payWiremock.stubFor(WireMock.post(String.format("/jobs/email-pay-reports?payment_method=%s&service_name=%s&start_date=%s", paymentMethod, serviceName, startDate))
+        payWiremock.stubFor(post(String.format("/jobs/email-pay-reports?payment_method=%s&service_name=%s&start_date=%s", paymentMethod, serviceName, startDate))
                 .withHeader(CONTENT_TYPE, containing(JSON_CONTENT_TYPE))
                 .withHeader(S2S_AUTHORIZATION_HEADER, equalTo(DUMMY_BEARER_TOKEN_WITH_BEARER))
                 .willReturn(aResponse()
@@ -82,7 +85,17 @@ public class BaseIntegrationTest {
     }
 
     protected void stubForEmailPayReportsWithPaymentMethod(String paymentMethod) {
-        payWiremock.stubFor(WireMock.post("/jobs/email-pay-reports?payment_method=" + paymentMethod)
+        payWiremock.stubFor(post("/jobs/email-pay-reports?payment_method=" + paymentMethod)
+                .withHeader(CONTENT_TYPE, containing(JSON_CONTENT_TYPE))
+                .withHeader(S2S_AUTHORIZATION_HEADER, equalTo(DUMMY_BEARER_TOKEN_WITH_BEARER))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                )
+        );
+    }
+
+    protected void stubForCardStatusUpdate() {
+        payWiremock.stubFor(patch(urlEqualTo("/jobs/card-payments-status-update"))
                 .withHeader(CONTENT_TYPE, containing(JSON_CONTENT_TYPE))
                 .withHeader(S2S_AUTHORIZATION_HEADER, equalTo(DUMMY_BEARER_TOKEN_WITH_BEARER))
                 .willReturn(aResponse()
