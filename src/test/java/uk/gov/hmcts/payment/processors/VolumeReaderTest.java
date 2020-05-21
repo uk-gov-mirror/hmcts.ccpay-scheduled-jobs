@@ -21,5 +21,8 @@ class VolumeReaderTest {
         String fromVolume = volumeReader.getFromVolume("dummy-file");
         
         assertThat(fromVolume, is("my-dummy-file"));
+        
+        Files.delete(tempDirWithPrefix.resolve("dummy-file"));
+        Files.delete(tempDirWithPrefix);
     }
 }
