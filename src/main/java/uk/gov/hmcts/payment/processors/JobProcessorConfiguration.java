@@ -9,20 +9,11 @@ public class JobProcessorConfiguration {
     private String s2sSecret;
     private String payUrl;
     private String reportName;
-
-    public JobProcessorConfiguration() {
-        this(new EnvironmentVariableRetriever());
-    }
-
-    public JobProcessorConfiguration(EnvironmentVariableRetriever envVarRetriever) {
+    
+    public JobProcessorConfiguration(EnvironmentVariableRetriever envVarRetriever, VolumeReader volumeReader) {
         this.s2sUrl = envVarRetriever.get("S2S_URL");
         this.payUrl = envVarRetriever.get("PAYMENT_SERVER_URL");
         this.reportName = envVarRetriever.get("REPORT_NAME");
-
-        String mountPath = envVarRetriever
-                .get("VOLUME_PATH", "/mnt/secrets/ccpay/");
-        
-        VolumeReader volumeReader = new VolumeReader(mountPath);
         this.s2sMicroserviceId = volumeReader.getFromVolume("gateway-s2s-client-id");
         this.s2sSecret = volumeReader.getFromVolume("gateway-s2s-client-secret");
     }

@@ -7,11 +7,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PbaFinremWeeklyCsvReportProcessor implements JobProcessor {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private static final Logger LOG = Logger.getLogger(PbaFinremWeeklyCsvReportProcessor.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(PbaFinremWeeklyCsvReportProcessor.class.getName());
     private final Map<String, String> headers = new HashMap<>();
     @Override
     public void process(String serviceToken, String baseURL) {

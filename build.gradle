@@ -25,6 +25,7 @@ repositories {
 
 dependencies {
     compile group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
+
     implementation(group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '3.1.2') {
         exclude group: 'com.google.guava', module: 'guava' 
         exclude group: 'org.springframework.security', module: 'spring-security-crypto' 
@@ -34,6 +35,7 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
+    testImplementation 'com.github.tomakehurst:wiremock:2.26.3'
 }
 
 jacocoTestReport {
