@@ -1,36 +1,37 @@
 plugins {
     id 'java'
-    id 'maven'
-    id 'maven-publish'
     id 'java-library'
     id 'jacoco'
-    id "com.jfrog.bintray" version "1.8.4"
     id 'org.owasp.dependencycheck' version '5.2.4'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'org.sonarqube' version '2.8'
 }
 
 group 'uk.gov.hmcts.reform.payment'
-version '1.2.7'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
 repositories {
-    maven { url "http://dl.bintray.com/hmcts/hmcts-maven/" }
     mavenLocal()
     jcenter()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
-    compile group: 'org.jboss.aerogear', name: 'aerogear-otp-java', version:'1.0.0'
-    compile group: 'org.json', name: 'json', version: '20140107'
-    testCompile group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
+    implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
+
+    implementation(group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '3.1.2') {
+        exclude group: 'com.google.guava', module: 'guava' 
+        exclude group: 'org.springframework.security', module: 'spring-security-crypto' 
+    }
+    implementation group: 'org.json', name: 'json', version: '20140107'
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
+    testImplementation 'com.github.tomakehurst:wiremock:2.26.3'
 }
 
 jacocoTestReport {
@@ -44,10 +45,15 @@ jacocoTestReport {
 
 project.tasks['sonarqube'].dependsOn jacocoTestReport
 
+test {
+    useJUnitPlatform()
+}
+
 sonarqube {
   properties {
     property "sonar.projectName", "Reform :: payment-jobs"
     property "sonar.projectKey", "uk.gov.hmcts.reform:payment-jobs"
+    property "sonar.coverage.exclusions", "**/JobProcessorConfiguration*,**JobProcessorApplication*"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
   }
 }
@@ -69,56 +75,17 @@ jar {
     manifest { 
         attributes  'Main-Class': 'JobProcessorApplication', 'Implementation-Title': project.name, 'Implementation-Version': project.version
     }
-}
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
-publishing {
-    publications {
-        Main(MavenPublication) {
-            artifactId = 'fatJar'
-        }
-    }
-}
-
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
-    publications = ['Main']
-    publish = true
-    pkg {
-        repo = 'hmcts-maven'
-        name = 'ccpay-scheduled-jobs'
-        userOrg = 'hmcts'
-        licenses = ['MIT']
-        vcsUrl = 'https://github.com/hmcts/ccpay-scheduled-jobs'
-        version {
-            name = project.version
-        }
-    }
-}
-
-task fatJar(type: Jar) {
-    manifest.from jar.manifest
     from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     } {
         exclude "META-INF/*.SF"
         exclude "META-INF/*.DSA"
         exclude "META-INF/*.RSA"
     }
-    with jar
+}
+
+task copyToLib(type: Copy) {
+    into "$buildDir/output/lib"
+    from configurations.compileClasspath
 }

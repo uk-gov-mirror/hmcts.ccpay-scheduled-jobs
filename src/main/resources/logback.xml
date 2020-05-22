@@ -1,0 +1,20 @@
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="STDOUT" />
+  </root>
+
+  <logger level="warn" name="org.eclipse.jetty">
+    <appender-ref ref="STDOUT" />
+  </logger>
+  
+<!--  change to debug to see http level information-->
+  <logger level="info" name="org.apache.http.wire">
+    <appender-ref ref="STDOUT" />
+  </logger>
+</configuration>
