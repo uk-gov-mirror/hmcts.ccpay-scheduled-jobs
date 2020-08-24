@@ -3,7 +3,7 @@ This repository is used to trigger the web jobs. This JAR has to be included as 
 
 ## Endpoint Details
 
-The below are the endpoints details which is being invoked from **run.sh** files in **ccpay-payment-app** module.
+The below are the endpoints details which is being invoked from **run.sh** files in **ccpay-payment-app** module..
 
 1. bar-csv-report
 
