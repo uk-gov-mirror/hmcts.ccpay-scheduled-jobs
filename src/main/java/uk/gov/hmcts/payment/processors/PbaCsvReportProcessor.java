@@ -21,28 +21,28 @@ public class PbaCsvReportProcessor implements JobProcessor {
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=CMC");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Specified Money Claims");
 
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=DIVORCE");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Divorce");
 
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=FINREM");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Financial Remedy");
 
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=PROBATE");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Probate");
 
        LOG.info("Report is going to be generated for FPL");
 
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=FPL");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Family Public Law");
     }
 }

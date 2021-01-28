@@ -14,7 +14,7 @@ class JobProcessorRunnerTest extends BaseIntegrationTest {
     @Test
     void runCompletes() {
         stubForS2s();
-        stubForEmailPayReportsWithService("DIGITAL_BAR");
+        stubForEmailPayReportsWithService("Digital%20Bar");
 
         JobProcessorConfiguration configuration = new MockJobProcessorConfiguration(
                 "http://localhost:" + s2sWiremock.port(),

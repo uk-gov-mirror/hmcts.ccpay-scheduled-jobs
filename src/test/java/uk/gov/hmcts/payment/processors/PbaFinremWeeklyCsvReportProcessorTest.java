@@ -11,7 +11,7 @@ class PbaFinremWeeklyCsvReportProcessorTest extends BaseIntegrationTest {
     void happyPathSucceeds() {
         stubForS2s();
         String date = LocalDateTime.now().minusDays(7).format(PbaFinremWeeklyCsvReportProcessor.formatter);
-        stubForEmailPayReports("PBA", "FINREM", date);
+        stubForEmailPayReports("PBA", "Financial%20Remedy", date);
 
 
         JobProcessorConfiguration configuration = new MockJobProcessorConfiguration(

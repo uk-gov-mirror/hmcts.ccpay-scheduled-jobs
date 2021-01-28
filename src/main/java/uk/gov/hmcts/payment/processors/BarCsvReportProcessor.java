@@ -20,7 +20,7 @@ public class BarCsvReportProcessor implements JobProcessor {
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?service_name=DIGITAL_BAR");
+                .post(baseURL+"/jobs/email-pay-reports?service_name=Digital Bar");
     }
 }
 
