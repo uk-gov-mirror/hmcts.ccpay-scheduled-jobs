@@ -15,6 +15,22 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+
+configurations.all {
+    resolutionStrategy {
+        eachDependency { DependencyResolveDetails det ->
+            /* JAR upgrades with latest versions for CVE fixes*/
+
+            /*
+                CVE-2020-17521
+            * */
+            if (det.requested.name == ('groovy-all' || 'groovy-xml')) {
+                det.useVersion '3.0.7'
+            }
+        }
+    }
+}
+
 repositories {
     mavenLocal()
     jcenter()
@@ -24,8 +40,8 @@ dependencies {
     implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
 
     implementation(group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '3.1.2') {
-        exclude group: 'com.google.guava', module: 'guava' 
-        exclude group: 'org.springframework.security', module: 'spring-security-crypto' 
+        exclude group: 'com.google.guava', module: 'guava'
+        exclude group: 'org.springframework.security', module: 'spring-security-crypto'
     }
     implementation group: 'org.json', name: 'json', version: '20140107'
 
@@ -35,12 +51,12 @@ dependencies {
 }
 
 jacocoTestReport {
-  executionData(test)
-  reports {
-    xml.enabled = true
-    csv.enabled = false
-    xml.destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
-  }
+    executionData(test)
+    reports {
+        xml.enabled = true
+        csv.enabled = false
+        xml.destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
+    }
 }
 
 project.tasks['sonarqube'].dependsOn jacocoTestReport
@@ -50,30 +66,30 @@ test {
 }
 
 sonarqube {
-  properties {
-    property "sonar.projectName", "Reform :: payment-jobs"
-    property "sonar.projectKey", "uk.gov.hmcts.reform:payment-jobs"
-    property "sonar.coverage.exclusions", "**/JobProcessorConfiguration*,**JobProcessorApplication*"
-    property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
-  }
+    properties {
+        property "sonar.projectName", "Reform :: payment-jobs"
+        property "sonar.projectKey", "uk.gov.hmcts.reform:payment-jobs"
+        property "sonar.coverage.exclusions", "**/JobProcessorConfiguration*,**JobProcessorApplication*"
+        property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
+    }
 }
 
 
 dependencyCheck {
-  // Specifies if the build should be failed if a CVSS score above a specified level is identified.
-  // range of 0-10 fails the build, anything greater and it doesn't fail the build
-  failBuildOnCVSS = System.getProperty('dependencyCheck.failBuild') == 'true' ? 0 : 11
-  suppressionFile = 'config/owasp/suppressions.xml'
+    // Specifies if the build should be failed if a CVSS score above a specified level is identified.
+    // range of 0-10 fails the build, anything greater and it doesn't fail the build
+    failBuildOnCVSS = System.getProperty('dependencyCheck.failBuild') == 'true' ? 0 : 11
+    suppressionFile = 'config/owasp/suppressions.xml'
 
-  analyzers {
-    // Disable scanning of .NET related binaries
-    assemblyEnabled = false
-  }
+    analyzers {
+        // Disable scanning of .NET related binaries
+        assemblyEnabled = false
+    }
 }
 
 jar {
-    manifest { 
-        attributes  'Main-Class': 'JobProcessorApplication', 'Implementation-Title': project.name, 'Implementation-Version': project.version
+    manifest {
+        attributes 'Main-Class': 'JobProcessorApplication', 'Implementation-Title': project.name, 'Implementation-Version': project.version
     }
 
     from {
