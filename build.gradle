@@ -15,6 +15,10 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+repositories {
+    mavenLocal()
+    jcenter()
+}
 
 configurations.all {
     resolutionStrategy {
@@ -24,16 +28,19 @@ configurations.all {
             /*
                 CVE-2020-17521
             * */
-            if (det.requested.name == ('groovy-all' || 'groovy-xml')) {
+            if (det.requested.name == 'groovy-xml' || det.requested.name == 'groovy-json') {
                 det.useVersion '3.0.7'
+            }
+
+            if (det.requested.name == 'httpclient') {
+                det.useVersion '4.5.13'
+            }
+
+            if (det.requested.name == 'org.apache.sling.javax.activation') {
+                det.useVersion '0.2.0'
             }
         }
     }
-}
-
-repositories {
-    mavenLocal()
-    jcenter()
 }
 
 dependencies {
@@ -80,6 +87,7 @@ dependencyCheck {
     // range of 0-10 fails the build, anything greater and it doesn't fail the build
     failBuildOnCVSS = System.getProperty('dependencyCheck.failBuild') == 'true' ? 0 : 11
     suppressionFile = 'config/owasp/suppressions.xml'
+    format = 'ALL'
 
     analyzers {
         // Disable scanning of .NET related binaries
