@@ -26,19 +26,13 @@ configurations.all {
         eachDependency { DependencyResolveDetails det ->
             /* JAR upgrades with latest versions for CVE fixes*/
 
-            /*
-                CVE-2020-17521
-            * */
+            /*   CVE-2020-17521 */
             if (det.requested.name == 'groovy-xml' || det.requested.name == 'groovy-json') {
                 det.useVersion '3.0.7'
             }
-
+            /* CVE-2020-13956 */
             if (det.requested.name == 'httpclient') {
                 det.useVersion '4.5.13'
-            }
-
-            if (det.requested.name == 'org.apache.sling.javax.activation') {
-                det.useVersion '0.2.0'
             }
         }
     }
