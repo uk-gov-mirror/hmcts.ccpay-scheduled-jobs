@@ -20,6 +20,7 @@ repositories {
     jcenter()
 }
 
+
 configurations.all {
     resolutionStrategy {
         eachDependency { DependencyResolveDetails det ->
@@ -58,12 +59,12 @@ dependencies {
 }
 
 jacocoTestReport {
-    executionData(test)
-    reports {
-        xml.enabled = true
-        csv.enabled = false
-        xml.destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
-    }
+  executionData(test)
+  reports {
+    xml.enabled = true
+    csv.enabled = false
+    xml.destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
+  }
 }
 
 project.tasks['sonarqube'].dependsOn jacocoTestReport
@@ -73,31 +74,30 @@ test {
 }
 
 sonarqube {
-    properties {
-        property "sonar.projectName", "Reform :: payment-jobs"
-        property "sonar.projectKey", "uk.gov.hmcts.reform:payment-jobs"
-        property "sonar.coverage.exclusions", "**/JobProcessorConfiguration*,**JobProcessorApplication*"
-        property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
-    }
+  properties {
+    property "sonar.projectName", "Reform :: payment-jobs"
+    property "sonar.projectKey", "uk.gov.hmcts.reform:payment-jobs"
+    property "sonar.coverage.exclusions", "**/JobProcessorConfiguration*,**JobProcessorApplication*"
+    property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
+  }
 }
 
 
 dependencyCheck {
-    // Specifies if the build should be failed if a CVSS score above a specified level is identified.
-    // range of 0-10 fails the build, anything greater and it doesn't fail the build
-    failBuildOnCVSS = System.getProperty('dependencyCheck.failBuild') == 'true' ? 0 : 11
-    suppressionFile = 'config/owasp/suppressions.xml'
-    format = 'ALL'
+  // Specifies if the build should be failed if a CVSS score above a specified level is identified.
+  // range of 0-10 fails the build, anything greater and it doesn't fail the build
+  failBuildOnCVSS = System.getProperty('dependencyCheck.failBuild') == 'true' ? 0 : 11
+  suppressionFile = 'config/owasp/suppressions.xml'
 
-    analyzers {
-        // Disable scanning of .NET related binaries
-        assemblyEnabled = false
-    }
+  analyzers {
+    // Disable scanning of .NET related binaries
+    assemblyEnabled = false
+  }
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': 'JobProcessorApplication', 'Implementation-Title': project.name, 'Implementation-Version': project.version
+        attributes  'Main-Class': 'JobProcessorApplication', 'Implementation-Title': project.name, 'Implementation-Version': project.version
     }
 
     from {
