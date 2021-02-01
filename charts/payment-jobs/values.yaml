@@ -1,9 +1,13 @@
 job:
-  image: hmctspublic.azurecr.io/payment/jobs:latest
-  schedule: "*/1 * * * *"
+  #image: hmctspublic.azurecr.io/payment/jobs:latest
+  #schedule: "*/1 * * * *"
+  image: hmctspublic.azurecr.io/payment/jobs:pr-17
+  schedule: "0 30,0 12/12,15/12,16/12 * * ?"
   environment:
     S2S_URL: http://rpe-service-auth-provider-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
-    PAYMENT_SERVER_URL: http://payment-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
+    #PAYMENT_SERVER_URL: http://payment-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
+    PAYMENT_SERVER_URL: http://payment-api-pr-803.service.core-compute-preview.internal
+    REPORT_NAME: card-csv-report
   keyVaults:
     ccpay:
       secrets:
