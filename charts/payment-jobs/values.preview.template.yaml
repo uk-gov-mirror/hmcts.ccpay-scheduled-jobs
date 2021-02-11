@@ -1,5 +1,5 @@
 job:
-  image: hmctspublic.azurecr.io/payment/jobs:pr-17
+  image: ${IMAGE_NAME}
   schedule: "0 30,0 12/12,15/12,16/12 * * ?"
   environment:
     REPORT_NAME: bar-csv-report
