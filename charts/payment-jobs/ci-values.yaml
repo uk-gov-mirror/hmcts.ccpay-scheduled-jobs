@@ -1,5 +1,5 @@
 job:
-  image: hmctspublic.azurecr.io/payment/jobs:pr-19
+  image: hmctspublic.azurecr.io/payment/jobs:latest
   schedule: "0 0,30 14,15,16 10,11,12,13 * ? *"
   environment:
     REPORT_NAME: bar-csv-report
