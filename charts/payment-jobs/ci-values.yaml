@@ -1,5 +1,6 @@
 job:
-  image: hmctspublic.azurecr.io/payment/jobs:pr-14-b6068735
+  image: hmctspublic.azurecr.io/payment/jobs:pr-19
+  schedule: "0 30,0 12/12,15/12,16/12 * * ?"
   environment:
     REPORT_NAME: bar-csv-report
 global:
