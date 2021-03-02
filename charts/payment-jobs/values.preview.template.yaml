@@ -1,4 +1,5 @@
 job:
   image: ${IMAGE_NAME}
+  schedule: "0 0 14 ? FEB,MAR * *"
   environment:
     REPORT_NAME: bar-csv-report
