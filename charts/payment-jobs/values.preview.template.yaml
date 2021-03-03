@@ -1,5 +1,5 @@
 job:
   image: ${IMAGE_NAME}
-  schedule: "0 0 14 ? FEB,MAR * *"
+  schedule: "0 0 15 ? FEB,MAR * *"
   environment:
-    REPORT_NAME: bar-csv-report
+    REPORT_NAME: pba-csv-report
