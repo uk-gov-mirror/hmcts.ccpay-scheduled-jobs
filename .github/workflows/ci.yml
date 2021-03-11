@@ -1,5 +1,5 @@
-# This workflow will have a CI flow for FeeRegister Java(Gradle) project
-name: fees register - CI
+# This workflow will have a CI flow for ccpay-scheduled-jobs Java(Gradle) project
+name: ccpay-scheduled-jobs - CI
 on:
   pull_request:
     branches:
