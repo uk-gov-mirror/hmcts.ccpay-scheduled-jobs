@@ -1,4 +1,5 @@
 job:
   image: ${IMAGE_NAME}
+  schedule: "0 0,0 15 ? * * *"
   environment:
     REPORT_NAME: bar-csv-report
