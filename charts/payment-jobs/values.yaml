@@ -4,7 +4,7 @@ environment:
   S2S_URL: http://rpe-service-auth-provider-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
   PAYMENT_SERVER_URL: http://payment-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
 keyVaults:
-  "S2S":
+  ccpay:
     secrets:
       - gateway-s2s-client-id
       - gateway-s2s-client-secret
