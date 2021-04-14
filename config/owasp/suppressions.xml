@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
     <suppress>
-        <notes><![CDATA[file name: org.apache.sling.javax.activation-0.1.0.jar]]></notes>
-        <packageUrl regex="true">^pkg:maven/org\.apache\.sling/org\.apache\.sling\.javax\.activation@.*$</packageUrl>
-        <cve>CVE-2016-5394</cve>
-    </suppress>
-    <suppress>
-        <notes><![CDATA[file name: org.apache.sling.javax.activation-0.1.0.jar]]></notes>
-        <packageUrl regex="true">^pkg:maven/org\.apache\.sling/org\.apache\.sling\.javax\.activation@.*$</packageUrl>
-        <cve>CVE-2016-6798</cve>
-    </suppress>
-    <suppress>
-        <notes>Transitive dependency of spring boot version</notes>
+        <notes>Seems to a false positive but not confirmed in groovy-xml-2.4.12.jar</notes>
         <cve>CVE-2020-5421</cve>
     </suppress>
 </suppressions>
