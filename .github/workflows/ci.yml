@@ -58,7 +58,7 @@ jobs:
             echo "FAILURE: ${STATUS} response from JitPack"
             exit 1
           fi
-      if: startsWith(github.ref, 'refs/tags')
+        if: startsWith(github.ref, 'refs/tags')
       - name: Cleanup Gradle Cache
         run: |
           rm -f ~/.gradle/caches/modules-2/modules-2.lock
