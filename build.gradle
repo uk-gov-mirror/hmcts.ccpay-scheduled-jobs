@@ -1,11 +1,9 @@
 plugins {
-    id 'application'
     id 'java'
     id 'java-library'
     id 'jacoco'
     id 'org.owasp.dependencycheck' version '6.0.1'
     id 'org.sonarqube' version '3.0'
-    id 'maven-publish'
 }
 
 group 'uk.gov.hmcts.reform.payment'
@@ -68,20 +66,6 @@ jacocoTestReport {
     csv.enabled = false
     xml.destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
   }
-}
-
-
-publishing {
-    publications {
-        Main(MavenPublication) {
-            from components.java
-            artifact sourcesJar
-            artifact javadocJar
-            groupId project.group
-            artifactId project.name
-            version project.version
-        }
-    }
 }
 
 project.tasks['sonarqube'].dependsOn jacocoTestReport
