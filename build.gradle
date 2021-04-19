@@ -17,6 +17,8 @@ tasks.withType(JavaCompile) {
 
 repositories {
     mavenLocal()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
     jcenter()
 }
 
