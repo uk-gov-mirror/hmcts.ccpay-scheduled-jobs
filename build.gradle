@@ -17,6 +17,8 @@ tasks.withType(JavaCompile) {
 
 repositories {
     mavenLocal()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
     jcenter()
 }
 
@@ -33,6 +35,11 @@ configurations.all {
             /* CVE-2020-13956 */
             if (det.requested.name == 'httpclient') {
                 det.useVersion '4.5.13'
+            }
+            /* CVE-2020-5421 */
+            if (det.requested.name == 'spring-web' || det.requested.name == 'spring-aop' || det.requested.name == 'spring-context' ||
+                det.requested.name == 'spring-expression') {
+                det.useVersion '5.2.9.RELEASE'
             }
         }
     }
