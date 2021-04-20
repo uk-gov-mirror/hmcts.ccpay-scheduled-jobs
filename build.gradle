@@ -41,6 +41,11 @@ configurations.all {
                 det.requested.name == 'spring-expression') {
                 det.useVersion '5.2.9.RELEASE'
             }
+
+            /* CVE-2021-29425 */
+            if (det.requested.name == 'commons-io') {
+                det.useVersion '2.8.0'
+            }
         }
     }
 }
