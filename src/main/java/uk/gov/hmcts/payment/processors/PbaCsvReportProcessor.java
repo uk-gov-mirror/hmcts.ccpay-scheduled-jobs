@@ -18,7 +18,7 @@ public class PbaCsvReportProcessor implements JobProcessor {
 
         LOG.info("Value in PbaCsvReportProcessor-----"+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", serviceToken);
-        // Need to change this once CMC onboarded org id
+        // Need to replace service name, once CMC onboarded org id
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
@@ -29,7 +29,7 @@ public class PbaCsvReportProcessor implements JobProcessor {
                 .headers(headers)
                 .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Divorce");
 
-        // Need to change this once Finrem onboarded org id
+        // Need to replace service name, once Finrem onboarded org id
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
