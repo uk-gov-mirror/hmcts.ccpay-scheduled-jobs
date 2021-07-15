@@ -22,6 +22,6 @@ public class PbaFinremWeeklyCsvReportProcessor implements JobProcessor {
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Finrem&start_date="+date);
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Financial Remedy&start_date="+date);
     }
 }

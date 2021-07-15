@@ -21,7 +21,7 @@ public class PbaCsvReportProcessor implements JobProcessor {
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Civil Money Claims");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Specified Money Claims");
 
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
@@ -31,7 +31,7 @@ public class PbaCsvReportProcessor implements JobProcessor {
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Finrem");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Financial Remedy");
 
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)

@@ -9,9 +9,9 @@ class PbaCsvReportProcessorTest extends BaseIntegrationTest {
     @Test
     void happyPathSucceeds() {
         stubForS2s();
-        stubForEmailPayReports("PBA", "Civil%20Money%20Claims");
+        stubForEmailPayReports("PBA", "Specified%20Money%20Claims");
         stubForEmailPayReports("PBA", "Divorce");
-        stubForEmailPayReports("PBA", "Finrem");
+        stubForEmailPayReports("PBA", "Financial%20Remedy");
         stubForEmailPayReports("PBA", "Probate");
         stubForEmailPayReports("PBA", "Family%20Public%20Law");
 
