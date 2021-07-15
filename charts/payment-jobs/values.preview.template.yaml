@@ -1,6 +1,5 @@
 job:
-  image: hmctspublic.azurecr.io/payment/jobs:pr-17
-  schedule: "0 0,30 14,15,16 10,11,12,13 * ? *"
+  image: ${IMAGE_NAME}
+  schedule: "0 0,0 15 ? * * *"
   environment:
-    PAYMENT_SERVER_URL: http://payment-api-pr-803.service.core-compute-preview.internal
     REPORT_NAME: pba-csv-report

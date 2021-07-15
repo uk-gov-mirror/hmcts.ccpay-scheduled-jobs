@@ -17,6 +17,8 @@ tasks.withType(JavaCompile) {
 
 repositories {
     mavenLocal()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
     jcenter()
 }
 
@@ -34,12 +36,31 @@ configurations.all {
             if (det.requested.name == 'httpclient') {
                 det.useVersion '4.5.13'
             }
+            /* CVE-2020-5421 */
+            if (det.requested.name == 'spring-web' || det.requested.name == 'spring-aop' || det.requested.name == 'spring-context' ||
+                det.requested.name == 'spring-expression') {
+                det.useVersion '5.2.9.RELEASE'
+            }
+
+            /* CVE-2021-29425 */
+            if (det.requested.name == 'commons-io') {
+                det.useVersion '2.8.0'
+            }
+
+            /*CVE-2021-22118*/
+            if (det.requested.name == 'spring-aop'||det.requested.name == 'spring-aspects'||det.requested.name == 'spring-beans'
+                    ||det.requested.name == 'spring-context'||det.requested.name == 'spring-core'||det.requested.name == 'spring-expression'
+                    ||det.requested.name == 'spring-jcl'||det.requested.name == 'spring-jdbc'||det.requested.name == 'spring-orm'
+                    ||det.requested.name == 'spring-tx'||det.requested.name == 'spring-web'||det.requested.name == 'spring-webmvc'
+                    ||det.requested.name == 'spring-context-support'||det.requested.name == 'spring-test') {
+                det.useVersion '5.2.15.RELEASE'
+            }
         }
     }
 }
 
 dependencies {
-    implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
+    implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3'
 
     implementation(group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '3.1.2') {
         exclude group: 'com.google.guava', module: 'guava'
