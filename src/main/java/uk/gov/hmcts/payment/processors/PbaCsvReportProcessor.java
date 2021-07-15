@@ -18,20 +18,22 @@ public class PbaCsvReportProcessor implements JobProcessor {
 
         LOG.info("Value in PbaCsvReportProcessor-----"+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", serviceToken);
+        // Need to change this once CMC onboarded org id
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Specified Money Claims");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Civil Money Claims");
 
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
                 .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Divorce");
 
+        // Need to change this once Finrem onboarded org id
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Financial Remedy");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Finrem");
 
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
