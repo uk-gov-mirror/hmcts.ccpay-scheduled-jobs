@@ -18,31 +18,36 @@ public class PbaCsvReportProcessor implements JobProcessor {
 
         LOG.info("Value in PbaCsvReportProcessor-----"+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", serviceToken);
+        LOG.info("Report is going to be generated for CMC");
+        // Need to replace service name, once CMC onboarded org id
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=CMC");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Civil Money Claims");
 
+        LOG.info("Report is going to be generated for Divorce");
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=DIVORCE");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Divorce");
 
+        LOG.info("Report is going to be generated for Finrem");
+        // Need to replace service name, once Finrem onboarded org id
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=FINREM");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Finrem");
 
+        LOG.info("Report is going to be generated for Probate");
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=PROBATE");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Probate");
 
-       LOG.info("Report is going to be generated for FPL");
-
+        LOG.info("Report is going to be generated for FPL");
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=FPL");
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Family Public Law");
     }
 }

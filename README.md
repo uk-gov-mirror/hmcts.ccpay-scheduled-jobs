@@ -7,7 +7,7 @@ The below are the endpoints details which is being invoked from **run.sh** files
 
 1. bar-csv-report
 
-POST - /jobs/email-pay-reports?service_name=DIGITAL_BAR
+POST - /jobs/email-pay-reports?service_name=Digital Bar
 
 2. card-csv-report
 
@@ -15,17 +15,17 @@ POST - /jobs/email-pay-reports?payment_method=CARD
 
 3. pba-csv-report
 
-POST - /jobs/email-pay-reports?payment_method=PBA&service_name=CMC
+POST - /jobs/email-pay-reports?payment_method=PBA&service_name=Specified Money Claims
 
-POST - /jobs/email-pay-reports?payment_method=PBA&service_name=DIVORCE
+POST - /jobs/email-pay-reports?payment_method=PBA&service_name=Divorce
 
-POST - /jobs/email-pay-reports?payment_method=PBA&service_name=FINREM
+POST - /jobs/email-pay-reports?payment_method=PBA&service_name=Financial Remedy
 
-POST - /jobs/email-pay-reports?payment_method=PBA&service_name=PROBATE
+POST - /jobs/email-pay-reports?payment_method=PBA&service_name=Probate
 
 4. pba-finrem-weekly-csv-report
 
-POST - /jobs/email-pay-reports?payment_method=PBA&service_name=FINREM&start_date="+date
+POST - /jobs/email-pay-reports?payment_method=PBA&service_name=Financial Remedy&start_date="+date
 
 5. status-update
 

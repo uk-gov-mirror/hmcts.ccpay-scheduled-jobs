@@ -9,7 +9,7 @@ class BarCsvReportProcessorTest extends BaseIntegrationTest {
     @Test
     void happyPathSucceeds() {
         stubForS2s();
-        stubForEmailPayReportsWithService("DIGITAL_BAR");
+        stubForEmailPayReportsWithService("Digital%20Bar");
         
         JobProcessorConfiguration configuration = new MockJobProcessorConfiguration(
                 "http://localhost:" + s2sWiremock.port(),

@@ -9,11 +9,13 @@ class PbaCsvReportProcessorTest extends BaseIntegrationTest {
     @Test
     void happyPathSucceeds() {
         stubForS2s();
-        stubForEmailPayReports("PBA", "CMC");
-        stubForEmailPayReports("PBA", "DIVORCE");
-        stubForEmailPayReports("PBA", "FINREM");
-        stubForEmailPayReports("PBA", "PROBATE");
-        stubForEmailPayReports("PBA", "FPL");
+        // Need to replace service name, once CMC onboarded org id
+        stubForEmailPayReports("PBA", "Civil%20Money%20Claims");
+        stubForEmailPayReports("PBA", "Divorce");
+        // Need to replace service name, once Finrem onboarded org id
+        stubForEmailPayReports("PBA", "Finrem");
+        stubForEmailPayReports("PBA", "Probate");
+        stubForEmailPayReports("PBA", "Family%20Public%20Law");
 
         JobProcessorConfiguration configuration = new MockJobProcessorConfiguration(
                 "http://localhost:" + s2sWiremock.port(),

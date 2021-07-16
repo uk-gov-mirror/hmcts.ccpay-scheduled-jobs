@@ -16,11 +16,12 @@ public class BarCsvReportProcessor implements JobProcessor {
     @Override
     public void process(String serviceToken, String baseURL) {
         LOG.info("Value in BarCsvReportProcessor-----"+"BaseURL--------"+baseURL);
+        LOG.info("Report is going to be generated for Digital Bar");
         headers.put("ServiceAuthorization", serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .contentType(ContentType.JSON)
                 .headers(headers)
-                .post(baseURL+"/jobs/email-pay-reports?service_name=DIGITAL_BAR");
+                .post(baseURL+"/jobs/email-pay-reports?service_name=Digital Bar");
     }
 }
 
