@@ -10,6 +10,10 @@ public class JobProcessorFactory {
             return new StatusUpdateProcessor();
 
         }
+        if(jobType.equalsIgnoreCase("dead-letter-queue-process")){
+            return new DeadLetterQueueProcessor();
+
+        }
         if(jobType.equalsIgnoreCase("bar-csv-report")){
             return new BarCsvReportProcessor();
 
