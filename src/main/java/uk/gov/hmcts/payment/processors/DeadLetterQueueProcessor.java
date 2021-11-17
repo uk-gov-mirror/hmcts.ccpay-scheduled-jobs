@@ -12,7 +12,7 @@ public class DeadLetterQueueProcessor implements JobProcessor {
     @Override
     public void process(String serviceToken, String baseURL) {
 
-        LOG.info("Value in DeadLetterQueueProcessor-----"+"BaseURL--------"+baseURL);
+        LOG.info("Value in DeadLetterQueueProcessor ----- "+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .baseUri(baseURL)
