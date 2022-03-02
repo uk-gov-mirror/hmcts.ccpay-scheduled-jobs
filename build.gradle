@@ -53,7 +53,7 @@ configurations.all {
                     ||det.requested.name == 'spring-jcl'||det.requested.name == 'spring-jdbc'||det.requested.name == 'spring-orm'
                     ||det.requested.name == 'spring-tx'||det.requested.name == 'spring-web'||det.requested.name == 'spring-webmvc'
                     ||det.requested.name == 'spring-context-support'||det.requested.name == 'spring-test') {
-                det.useVersion '5.3.12'
+                det.useVersion '5.3.15'
             }
         }
     }
