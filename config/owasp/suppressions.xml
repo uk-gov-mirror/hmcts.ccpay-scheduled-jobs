@@ -28,8 +28,12 @@
         <notes>Fix until the import for logback are updated</notes>
         <cve>CVE-2021-42550</cve>
     </suppress>
-        <suppress until="2022-06-30">
+    <suppress until="2022-06-30">
         <notes>Fix until the import for logback are updated</notes>
         <cve>CVE-2020-36518</cve>
+    </suppress>
+    <suppress until="2022-06-30">
+        <notes>Fix until Spring MVC or Spring WebFlux is finished being analyzed and a fix is ready</notes>
+        <cve>CVE-2022-22965</cve>
     </suppress>
 </suppressions>
