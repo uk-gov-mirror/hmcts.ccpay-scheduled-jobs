@@ -20,15 +20,15 @@
         <packageUrl regex="true">^pkg:maven/org\.apache\.sling/org\.apache\.sling\.javax\.activation@.*$</packageUrl>
         <cve>CVE-2016-6798</cve>
     </suppress>
-    <suppress until="2021-03-30">
+    <suppress until="2021-06-30">
         <notes>Transitive dependency of spring boot version</notes>
         <cve>CVE-2020-5421</cve>
     </suppress>
-    <suppress until="2022-03-30">
+    <suppress until="2022-06-30">
         <notes>Fix until the import for logback are updated</notes>
         <cve>CVE-2021-42550</cve>
     </suppress>
-        <suppress until="2022-03-30">
+        <suppress until="2022-06-30">
         <notes>Fix until the import for logback are updated</notes>
         <cve>CVE-2020-36518</cve>
     </suppress>
