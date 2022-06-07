@@ -46,6 +46,11 @@ configurations.all {
             if (det.requested.name == 'commons-io') {
                 det.useVersion '2.8.0'
             }
+            
+            /*CVE-2021-44228, CVE-2021-44832, CVE-2021-45046, CVE-2021-45105*/
+            if (det.requested.name == 'log4j-api' || det.requested.name == 'log4j-to-slf4j') {
+                det.useVersion '2.17.1'
+            }
 
             /*CVE-2021-22118*/
             if (det.requested.name == 'spring-aop'||det.requested.name == 'spring-aspects'||det.requested.name == 'spring-beans'
@@ -53,7 +58,7 @@ configurations.all {
                     ||det.requested.name == 'spring-jcl'||det.requested.name == 'spring-jdbc'||det.requested.name == 'spring-orm'
                     ||det.requested.name == 'spring-tx'||det.requested.name == 'spring-web'||det.requested.name == 'spring-webmvc'
                     ||det.requested.name == 'spring-context-support'||det.requested.name == 'spring-test') {
-                det.useVersion '5.2.15.RELEASE'
+                det.useVersion '5.3.15'
             }
         }
     }
