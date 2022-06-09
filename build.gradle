@@ -46,6 +46,11 @@ configurations.all {
             if (det.requested.name == 'commons-io') {
                 det.useVersion '2.8.0'
             }
+            
+            /*CVE-2021-44228, CVE-2021-44832, CVE-2021-45046, CVE-2021-45105*/
+            if (det.requested.name == 'log4j-api' || det.requested.name == 'log4j-to-slf4j') {
+                det.useVersion '2.17.1'
+            }
 
 
             /*CVE-2021-44228, CVE-2021-44832, CVE-2021-45046, CVE-2021-45105*/

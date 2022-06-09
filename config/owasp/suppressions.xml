@@ -20,12 +20,41 @@
         <packageUrl regex="true">^pkg:maven/org\.apache\.sling/org\.apache\.sling\.javax\.activation@.*$</packageUrl>
         <cve>CVE-2016-6798</cve>
     </suppress>
-    <suppress until="2021-03-30">
+
+    <suppress until="2021-06-30">
         <notes>Transitive dependency of spring boot version</notes>
         <cve>CVE-2020-5421</cve>
     </suppress>
-    <suppress until="2022-03-30">
+    <suppress until="2022-06-30">
         <notes>Fix until the import for logback are updated</notes>
         <cve>CVE-2021-42550</cve>
+    </suppress>
+    <suppress until="2022-06-30">
+        <notes>Fix until the import for logback are updated</notes>
+        <cve>CVE-2020-36518</cve>
+    </suppress>
+    <suppress until="2022-06-30">
+        <notes>Fix until Spring MVC or Spring WebFlux is finished being analyzed and a fix is ready</notes>
+        <cve>CVE-2022-22965</cve>
+    </suppress>
+    <suppress until="2022-06-30">
+        <notes>Awaiting version of Spring-core with a fix for the following CVE issue.</notes>
+        <cve>CVE-2022-22950</cve>
+    </suppress>
+    <suppress until="2022-06-30">
+        <notes>Awaiting version of Spring-core with a fix for the following CVE issue.</notes>
+        <cve>CVE-2016-1000027</cve>
+    </suppress>
+    <suppress until="2022-06-30">
+        <notes>New CVE issue.</notes>
+        <cve>CVE-2022-22968</cve>
+    </suppress>
+    <suppress until="2022-06-30">
+        <notes>New CVE issue.</notes>
+        <cve>CVE-2022-22970</cve>
+    </suppress>
+    <suppress until="2022-06-30">
+        <notes>New CVE issue.</notes>
+        <cve>CVE-2022-22971</cve>
     </suppress>
 </suppressions>
