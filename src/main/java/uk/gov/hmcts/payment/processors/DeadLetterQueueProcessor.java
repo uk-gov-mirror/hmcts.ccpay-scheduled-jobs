@@ -21,4 +21,3 @@ public class DeadLetterQueueProcessor implements JobProcessor {
                 .patch("/jobs/dead-letter-queue-process");
     }
 }
-
