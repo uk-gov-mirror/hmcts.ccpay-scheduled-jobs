@@ -62,8 +62,8 @@
         affected by a race condition that could lead to a local privilege escalation. CVE-2022-33915 occured,
         despite latest versions used.
     </notes>
-    </suppress>
     <cve>CVE-2022-33915</cve>
+    </suppress>
     <suppress until="2022-09-30">
         <notes>Awaiting version of Spring-core with a fix for the following CVE issue.</notes>
         <cve>CVE-2016-1000027</cve>
