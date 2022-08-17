@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-public class UnprocessedPaymentUpdateProcessorTest extends BaseIntegrationTest {
+class UnprocessedPaymentUpdateProcessorTest extends BaseIntegrationTest {
 
     @Test
     void happyPathSucceeds() {
