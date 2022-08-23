@@ -49,5 +49,11 @@ public class PbaCsvReportProcessor implements JobProcessor {
                 .contentType(ContentType.JSON)
                 .headers(headers)
                 .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Family Public Law");
+
+        LOG.info("Report is going to be generated for Family Private Law");
+        RestAssured.given().relaxedHTTPSValidation()
+                .contentType(ContentType.JSON)
+                .headers(headers)
+                .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=Family Private Law");
     }
 }
