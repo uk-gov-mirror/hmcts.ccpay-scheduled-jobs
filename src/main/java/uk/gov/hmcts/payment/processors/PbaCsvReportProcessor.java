@@ -26,11 +26,11 @@ public class PbaCsvReportProcessor implements JobProcessor {
         services.add("Divorce");
 
         services.forEach((String service) -> {
-            LOG.info("Report is going to be generated for " + service);
+            LOG.info(String.format("Report is going to be generated for %s", service));
             RestAssured.given().relaxedHTTPSValidation()
                     .contentType(ContentType.JSON)
                     .headers(headers)
-                    .post(baseURL+"/jobs/email-pay-reports?payment_method=PBA&service_name=" + service);
+                    .post(baseURL+(String.format("/jobs/email-pay-reports?payment_method=PBA&service_name=%s", service));
         });
 
 
