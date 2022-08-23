@@ -28,7 +28,7 @@ public class PbaCsvReportProcessor implements JobProcessor {
         services.add("Probate");
         services.add("Family Public Law");
         services.add("Family Private Law");
-        services.add("civil_service");
+        services.add("Civil");
 
 
         services.forEach((String service) -> {
