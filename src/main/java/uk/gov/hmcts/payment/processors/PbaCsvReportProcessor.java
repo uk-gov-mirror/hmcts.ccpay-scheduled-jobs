@@ -32,18 +32,15 @@ public class PbaCsvReportProcessor implements JobProcessor {
 
         LOG.info("Value in PbaCsvReportProcessor-----"+"BaseURL--------"+baseURL);
         headers.put("ServiceAuthorization", serviceToken);
-        String URL = baseURL + "/jobs/email-pay-reports?payment_method=PBA&service_name=";
+        String postURL = baseURL + "/jobs/email-pay-reports?payment_method=PBA&service_name=";
 
         services.forEach((String service) -> {
-//            StringBuilder URL = new StringBuilder(baseURL)
-//                    .append("/jobs/email-pay-reports?payment_method=PBA&service_name=")
-//                    .append(service);
 
             LOG.info("Report is going to be generated for {}", service);
             RestAssured.given().relaxedHTTPSValidation()
                     .contentType(ContentType.JSON)
                     .headers(headers)
-                    .post(URL+service);
+                    .post(postURL+service);
         });
     }
 }
