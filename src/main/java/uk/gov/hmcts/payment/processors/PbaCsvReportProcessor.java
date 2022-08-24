@@ -14,14 +14,10 @@ public class PbaCsvReportProcessor implements JobProcessor {
 
     private final Map<String, String> headers = new HashMap<>();
     private static final Logger LOG = LoggerFactory.getLogger(PbaCsvReportProcessor.class.getName());
+    private static List<String> services;
 
-    @Override
-    public void process(String serviceToken, String baseURL) {
-
-        LOG.info("Value in PbaCsvReportProcessor-----"+"BaseURL--------"+baseURL);
-        headers.put("ServiceAuthorization", serviceToken);
-
-        List<String> services = new ArrayList<>();
+    static {
+        services = new ArrayList<>();
         services.add("Civil Money Claims");
         services.add("Divorce");
         services.add("Finrem");
@@ -29,14 +25,25 @@ public class PbaCsvReportProcessor implements JobProcessor {
         services.add("Family Public Law");
         services.add("Family Private Law");
         services.add("Civil");
+    }
 
+    @Override
+    public void process(String serviceToken, String baseURL) {
+
+        LOG.info("Value in PbaCsvReportProcessor-----"+"BaseURL--------"+baseURL);
+        headers.put("ServiceAuthorization", serviceToken);
+        String URL = baseURL + "/jobs/email-pay-reports?payment_method=PBA&service_name=";
 
         services.forEach((String service) -> {
-            LOG.info(String.format("Report is going to be generated for %s", service));
+//            StringBuilder URL = new StringBuilder(baseURL)
+//                    .append("/jobs/email-pay-reports?payment_method=PBA&service_name=")
+//                    .append(service);
+
+            LOG.info("Report is going to be generated for {}", service);
             RestAssured.given().relaxedHTTPSValidation()
                     .contentType(ContentType.JSON)
                     .headers(headers)
-                    .post(baseURL+(String.format("/jobs/email-pay-reports?payment_method=PBA&service_name=%s", service)));
+                    .post(URL+service);
         });
     }
 }
