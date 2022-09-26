@@ -30,6 +30,11 @@ public class JobProcessorFactory {
             return new PbaFinremWeeklyCsvReportProcessor();
 
         }
+
+        if(jobType.equalsIgnoreCase("unprocessed-payment-update")){
+            return new UnprocessedPaymentUpdateProcessor();
+
+        }
         return null;
     }
 }
