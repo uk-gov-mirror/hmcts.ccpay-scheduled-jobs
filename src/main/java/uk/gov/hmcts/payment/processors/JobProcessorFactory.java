@@ -30,9 +30,13 @@ public class JobProcessorFactory {
             return new PbaFinremWeeklyCsvReportProcessor();
 
         }
+
         if(jobType.equalsIgnoreCase("refund-notification-update-process")){
             return new RefundNotificationUpdateProcessor();
+         }
 
+        if(jobType.equalsIgnoreCase("unprocessed-payment-update")){
+            return new UnprocessedPaymentUpdateProcessor();
         }
         return null;
     }
