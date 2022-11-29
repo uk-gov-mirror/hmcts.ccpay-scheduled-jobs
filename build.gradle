@@ -60,6 +60,11 @@ configurations.all {
                     ||det.requested.name == 'spring-context-support'||det.requested.name == 'spring-test') {
                 det.useVersion '5.3.15'
             }
+
+            /* CVE CVE-2022-41854 */
+            if (det.requested.name == 'snakeyaml') {
+                det.useVersion '1.33'
+            }
         }
     }
 }
