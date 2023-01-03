@@ -85,7 +85,7 @@
         <cve>CVE-2022-42003</cve>
         <cve>CVE-2022-42004</cve>
     </suppress>
-    <suppress>
+    <suppress until="2022-03-31">
         <notes>
             Prior to Apache Commons Net 3.9.0, Net's FTP client trusts the host from PASV response by default.
             A malicious server can redirect the Commons Net code to use a different host, but the user has to
@@ -93,5 +93,34 @@
             Major release 3.9.0+ needed to be upgraded to.
         </notes>
         <cve>CVE-2021-37533</cve>
+    </suppress>
+    <suppress until="2022-03-31">
+        <notes>
+            In FasterXML jackson-databind before 2.13.4, resource exhaustion can occur because of a lack of a check in
+            BeanDeserializer._deserializeFromArray to prevent use of deeply nested arrays. An application is vulnerable only
+            with certain customized choices for deserialization.
+        </notes>
+        <cve>CVE-2020-36518</cve>
+        <cve>CVE-2022-42003</cve>
+        <cve>CVE-2022-42004</cve>
+    </suppress>
+    <suppress until="2022-03-31">
+        <notes>
+            In spring framework versions prior to 5.3.20+ , 5.2.22+ and old unsupported versions,
+            application with a STOMP over WebSocket endpoint is vulnerable to a denial of service attack by an authenticated user.
+        </notes>
+        <cve>CVE-2016-1000027</cve>
+        <cve>CVE-2022-22950</cve>
+        <cve>CVE-2022-22965</cve>
+        <cve>CVE-2022-22968</cve>
+        <cve>CVE-2022-22970</cve>
+        <cve>CVE-2022-22971</cve>
+    </suppress>
+    <suppress until="2022-03-31">
+        <notes>
+            In logback version 1.2.7 and prior versions, an attacker with the required privileges to edit configurations
+            files could craft a malicious configuration allowing to execute arbitrary code loaded from LDAP servers.
+        </notes>
+        <cve>CVE-2021-42550</cve>
     </suppress>
 </suppressions>
