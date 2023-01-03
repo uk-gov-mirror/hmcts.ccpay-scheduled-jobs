@@ -25,6 +25,7 @@ public class PbaCsvReportProcessor implements JobProcessor {
         services.add("Family Public Law");
         services.add("Family Private Law");
         services.add("Civil");
+        services.add("Immigration and Asylum Appeals");
     }
 
     @Override
