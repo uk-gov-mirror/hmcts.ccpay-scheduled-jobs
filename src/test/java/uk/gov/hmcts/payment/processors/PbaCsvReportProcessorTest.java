@@ -16,6 +16,9 @@ class PbaCsvReportProcessorTest extends BaseIntegrationTest {
         stubForEmailPayReports("PBA", "Finrem");
         stubForEmailPayReports("PBA", "Probate");
         stubForEmailPayReports("PBA", "Family%20Public%20Law");
+        stubForEmailPayReports("PBA", "Family%20Private%20Law");
+        stubForEmailPayReports("PBA", "Civil");
+        stubForEmailPayReports("PBA", "Immigration%20and%20Asylum%20Appeals");
 
         JobProcessorConfiguration configuration = new MockJobProcessorConfiguration(
                 "http://localhost:" + s2sWiremock.port(),
