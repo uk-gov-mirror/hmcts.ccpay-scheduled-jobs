@@ -31,7 +31,7 @@ public class JobProcessorFactory {
 
         }
 
-        if(jobType.equalsIgnoreCase("refund-notification-update-process")){
+        if(jobType.equalsIgnoreCase("refund-notifications-job")){
             return new RefundNotificationUpdateProcessor();
          }
 
