@@ -12,7 +12,6 @@ public class JobProcessorRunner {
     public static void run(JobProcessorConfiguration configuration) {
         String s2sToken = new S2SHelper(configuration).generateToken();
         LOG.info("S2S Token generated");
-
         String reportName = configuration.getReportName();
         String payUrl = configuration.getPayUrl();
         String refundsUrl = configuration.getRefundsUrl();
