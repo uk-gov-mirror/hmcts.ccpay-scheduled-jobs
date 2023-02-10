@@ -93,5 +93,9 @@
             Major release 3.9.0+ needed to be upgraded to.
         </notes>
         <cve>CVE-2021-37533</cve>
+        <cve>CVE-2020-15522</cve>
+        <cve>CVE-2020-5412</cve>
+        <cve>CVE-2021-22053</cve>
+        <cve>CVE-2021-22044</cve>
     </suppress>
 </suppressions>
