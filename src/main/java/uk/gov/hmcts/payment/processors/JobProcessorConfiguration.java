@@ -8,11 +8,13 @@ public class JobProcessorConfiguration {
     private String s2sMicroserviceId;
     private String s2sSecret;
     private String payUrl;
+    private String refundsUrl;
     private String reportName;
     
     public JobProcessorConfiguration(EnvironmentVariableRetriever envVarRetriever, VolumeReader volumeReader) {
         this.s2sUrl = envVarRetriever.get("S2S_URL");
         this.payUrl = envVarRetriever.get("PAYMENT_SERVER_URL");
+        this.refundsUrl = envVarRetriever.get("REFUNDS_SERVER_URL");
         this.reportName = envVarRetriever.get("REPORT_NAME");
         this.s2sMicroserviceId = volumeReader.getFromVolume("gateway-s2s-client-id");
         this.s2sSecret = volumeReader.getFromVolume("gateway-s2s-client-secret");
@@ -32,6 +34,10 @@ public class JobProcessorConfiguration {
 
     public String getPayUrl() {
         return payUrl;
+    }
+
+    public String getRefundsUrl() {
+        return refundsUrl;
     }
 
     public String getReportName() {
