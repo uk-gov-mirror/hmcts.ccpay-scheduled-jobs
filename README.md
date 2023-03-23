@@ -30,4 +30,3 @@ POST - /jobs/email-pay-reports?payment_method=PBA&service_name=Financial Remedy&
 5. status-update
 
 PATCH - /jobs/card-payments-status-update
-
