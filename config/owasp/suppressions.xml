@@ -39,10 +39,9 @@
     <suppress until="2023-07-30">
         <notes>Awaiting version of Spring-core with a fix for the following CVE issue.</notes>
         <cve>CVE-2022-22950</cve>
-    </suppress>
-    <suppress until="2023-07-30">
-        <notes>Awaiting version of Spring-core with a fix for the following CVE issue.</notes>
         <cve>CVE-2016-1000027</cve>
+        <cve>CVE-2023-20861</cve>
+        <cve>CVE-2023-20860</cve>
     </suppress>
     <suppress until="2023-07-30">
         <notes>New CVE issue.</notes>
