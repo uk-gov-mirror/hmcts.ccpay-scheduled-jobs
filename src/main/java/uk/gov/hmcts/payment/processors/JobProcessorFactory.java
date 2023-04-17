@@ -31,9 +31,12 @@ public class JobProcessorFactory {
 
         }
 
+        if(jobType.equalsIgnoreCase("refund-notifications-job")){
+            return new RefundNotificationUpdateProcessor();
+         }
+
         if(jobType.equalsIgnoreCase("unprocessed-payment-update")){
             return new UnprocessedPaymentUpdateProcessor();
-
         }
         return null;
     }
