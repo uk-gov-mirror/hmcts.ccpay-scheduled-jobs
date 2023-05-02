@@ -2,7 +2,8 @@ package uk.gov.hmcts.payment.processors;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class DuplicatePaymentProcessorTest extends BaseIntegrationTest{
 
@@ -18,11 +19,8 @@ class DuplicatePaymentProcessorTest extends BaseIntegrationTest{
 
         String s2sToken = new S2SHelper(configuration).generateToken();
 
-        DuplicatePaymentProcessorTest processor = new DuplicatePaymentProcessorTest();
+        DuplcatePaymentProcessor processor = new DuplcatePaymentProcessor();
         assertDoesNotThrow(() -> processor.process(s2sToken, configuration.getPayUrl()));
-    }
-
-    private void process(String s2sToken, String payUrl) {
     }
 
 
