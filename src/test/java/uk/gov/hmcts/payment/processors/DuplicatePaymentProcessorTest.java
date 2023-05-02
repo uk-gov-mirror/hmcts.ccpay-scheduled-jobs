@@ -21,5 +21,8 @@ class DuplicatePaymentProcessorTest extends BaseIntegrationTest{
         DuplicatePaymentProcessorTest processor = new DuplicatePaymentProcessorTest();
         assertDoesNotThrow(() -> processor.process(s2sToken, configuration.getPayUrl()));
     }
+
+    private void process(String s2sToken, String payUrl) {
+    }
 }
 
