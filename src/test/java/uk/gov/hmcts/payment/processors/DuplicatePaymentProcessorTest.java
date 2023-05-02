@@ -24,5 +24,7 @@ class DuplicatePaymentProcessorTest extends BaseIntegrationTest{
 
     private void process(String s2sToken, String payUrl) {
     }
+
+
 }
 
