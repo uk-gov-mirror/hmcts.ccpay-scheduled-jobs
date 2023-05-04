@@ -14,7 +14,7 @@ public class DuplcatePaymentProcessor implements JobProcessor {
     @Override
     public void process(String serviceToken, String baseURL) {
 
-        LOG.info("Value in DuplcatePaymentProcessor-----"+"BaseURL--------"+baseURL);
+        LOG.info("Value in DuplcatePaymentProcessor-----" + "BaseURL--------{}", baseURL);
         headers.put("ServiceAuthorization", serviceToken);
         RestAssured.given().relaxedHTTPSValidation()
                 .baseUri(baseURL)
