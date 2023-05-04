@@ -22,6 +22,4 @@ public class DuplcatePaymentProcessor implements JobProcessor {
                 .headers(headers)
                 .patch("/jobs/duplicate-payment-process");
     }
-
-
 }
