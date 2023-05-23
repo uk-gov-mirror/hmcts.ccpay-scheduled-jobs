@@ -17,6 +17,7 @@ class DuplicatePaymentProcessorTest extends BaseIntegrationTest{
                 "http://localhost:" + payWiremock.port()
         );
 
+
         String s2sToken = new S2SHelper(configuration).generateToken();
 
         DuplcatePaymentProcessor processor = new DuplcatePaymentProcessor();
