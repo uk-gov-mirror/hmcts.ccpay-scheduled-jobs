@@ -38,6 +38,11 @@ public class JobProcessorFactory {
         if(jobType.equalsIgnoreCase("unprocessed-payment-update")){
             return new UnprocessedPaymentUpdateProcessor();
         }
+
+        if(jobType.equalsIgnoreCase("duplicate-payment-process")){
+            return new DuplcatePaymentProcessor();
+        }
+
         return null;
     }
 }
