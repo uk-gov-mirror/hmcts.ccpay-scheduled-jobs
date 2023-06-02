@@ -18,6 +18,7 @@ public class JobProcessorConfiguration {
         this.reportName = envVarRetriever.get("REPORT_NAME");
         this.s2sMicroserviceId = volumeReader.getFromVolume("gateway-s2s-client-id");
         this.s2sSecret = volumeReader.getFromVolume("gateway-s2s-client-secret");
+
     }
 
     public String getS2sUrl() {
