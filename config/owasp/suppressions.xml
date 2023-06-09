@@ -114,7 +114,7 @@
     <suppress>
         <cve>CVE-2021-46877</cve>
     </suppress>
-    <suppress>
+    <suppress until="2023-07-30">
         <notes>supressing spring boot error</notes>
         <cve>CVE-2023-20883</cve>
     </suppress>
