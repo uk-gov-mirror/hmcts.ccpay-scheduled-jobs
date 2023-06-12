@@ -107,6 +107,14 @@
         <cve>CVE-2022-2047</cve>
     </suppress>
     <suppress>
+        <cve>CVE-2022-2048</cve>
+        <cve>CVE-2023-26049</cve>
+        <cve>CVE-2021-42550</cve>
+        <cve>CVE-2022-2047</cve>
+        <cve>CVE-2023-26048</cve>
+        <cve>CVE-2023-20883</cve>
+    </suppress>
+    <suppress>
         <notes>In spring framework versions prior to 5.2.24 release+ ,5.3.27+ and 6.0.8+ , it is possible for a user to provide a specially crafted SpEL expression that may cause a denial-of-service (DoS) condition.
         </notes>
         <cve>CVE-2023-20863</cve>
@@ -118,4 +126,5 @@
         <notes>supressing spring boot error</notes>
         <cve>CVE-2023-20883</cve>
     </suppress>
+
 </suppressions>
