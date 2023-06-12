@@ -10,7 +10,6 @@ import uk.gov.hmcts.payment.processors.S2SHelper;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JobProcessorRunnerTest extends BaseIntegrationTest {
-
     @Test
     void runCompletes() {
         stubForS2s();
