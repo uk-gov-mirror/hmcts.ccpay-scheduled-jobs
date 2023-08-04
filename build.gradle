@@ -8,8 +8,14 @@ plugins {
 
 group 'uk.gov.hmcts.reform.payment'
 
-sourceCompatibility = 11
-targetCompatibility = 11
+
+def javaLoggingVersion = '6.0.1'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -137,6 +143,14 @@ jar {
         exclude "META-INF/*.SF"
         exclude "META-INF/*.DSA"
         exclude "META-INF/*.RSA"
+    }
+
+    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
+}
+
+tasks.withType(Copy) {
+    filesMatching("**/*.yaml") {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
     }
 }
 
