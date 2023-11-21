@@ -1,4 +1,4 @@
-FROM hmctspublic.azurecr.io/base/java:17-distroless
+FROM hmctspublic.azurecr.io/base/java:21-distroless
 
 COPY build/libs/ccpay-scheduled-jobs.jar /opt/app/
 
