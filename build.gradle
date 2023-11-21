@@ -86,7 +86,7 @@ configurations.all {
 dependencies {
     implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.5.1'
 
-    implementation(group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '3.1.4') {
+    implementation(group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '4.0.0') {
         exclude group: 'com.google.guava', module: 'guava'
         exclude group: 'org.springframework.security', module: 'spring-security-crypto'
     }
