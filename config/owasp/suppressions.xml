@@ -113,145 +113,151 @@
         <cve>CVE-2023-20883</cve>
     </suppress>
     <suppress>
+        <notes>Spring</notes>
+        <cve>CVE-2023-34053</cve>
+        <cve>CVE-2023-33202</cve>
+        <cve>CVE-2023-6378</cve>
+    </suppress>
+    <suppress>
         <notes>
             In Spring Boot versions 3.0.0 - 3.0.5, 2.7.0 - 2.7.10, and older unsupported versions, an application that is deployed to Cloud Foundry could be susceptible to a security bypass.
         </notes>
         <cve>CVE-2023-20873</cve>
     </suppress>
 
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             In FasterXML jackson-databind before 2.13.4, resource exhaustion can occur because of a lack of a check in BeanDeserializer.
         </notes>
         <cve>CVE-2022-42004</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             In logback version 1.2.7 and prior versions, an attacker with the required privileges to edit configurations files could craft a malicious configuration allowing to execute arbitrary code loaded from LDAP servers.
         </notes>
         <cve>CVE-2021-42550</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             A stack overflow in the XML.toJSONObject component of hutool-json v5.8.10 allows attackers to cause a Denial of Service
         </notes>
         <cve>CVE-2022-45688</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             In FasterXML jackson-databind before 2.14.0-rc1, resource exhaustion can occur because of a lack of a check in primitive value deserializers to avoid deep wrapper array nesting, when the UNWRAP_SINGLE_VALUE_ARRAYS feature is enabled
         </notes>
         <cve>CVE-2022-42003</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             Denial of Service in JSON-Java versions up to and including 20230618.
         </notes>
         <cve>CVE-2023-5072</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization.
         </notes>
         <cve>CVE-2022-1471</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             jackson-databind before 2.13.0 allows a Java StackOverflow exception and denial of service via a large depth of nested objects.
         </notes>
         <cve>CVE-2020-36518</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             Apache Commons FileUpload before 1.5 does not limit the number of request parts to be processed resulting in the possibility of an attacker triggering a DoS with a malicious upload or series of uploads.
         </notes>
         <cve>CVE-2023-24998</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             Bouncy Castle BC Java before 1.66, BC C# .NET before 1.8.7, BC-FJA before 1.0.1.2, 1.0.2.1, and BC-FNA before 1.0.1.1
         </notes>
         <cve>CVE-2020-15522</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             Spring Cloud Netflix, versions 2.2.x prior to 2.2.4, versions 2.1.x prior to 2.1.6,
         </notes>
         <cve>CVE-2020-5412</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             Applications using both `spring-cloud-netflix-hystrix-dashboard` and `spring-boot-starter-thymeleaf` expose a way to execute code submitted within the request URI path during the resolution of view templates.
         </notes>
         <cve>CVE-2021-22053</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             In Spring Cloud OpenFeign 3.0.0 to 3.0.4, 2.2.0.RELEASE to 2.2.9.RELEASE, and older unsupported versions, applications using type-level `@RequestMapping`annotations over Feign client interfaces,
         </notes>
         <cve>CVE-2021-22044</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             jackson-databind 2.10.x through 2.12.x before 2.12.6 and 2.13.x before 2.13.1 allows attackers to cause a denial of service (2 GB transient heap usage per read) in uncommon situations involving JsonNode JDK serialization.
         </notes>
         <cve>CVE-2021-46877</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             Bouncy Castle BC Java before 1.66, BC C# .NET before 1.8.7, BC-FJA before 1.0.1.2, 1.0.2.1,
         </notes>
         <cve>CVE-2020-15522</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             Apache Commons FileUpload before 1.5 does not limit the number of request parts to be processed
         </notes>
         <cve>CVE-2023-24998</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             jackson-databind before 2.13.0 allows a Java StackOverflow exception
         </notes>
         <cve>CVE-2020-36518</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             jackson-databind 2.10.x through 2.12.x before 2.12.6 and 2.13.x before 2.13.1
         </notes>
         <cve>CVE-2021-46877</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             In FasterXML jackson-databind before 2.14.0-rc1
         </notes>
         <cve>CVE-2022-42003</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             In FasterXML jackson-databind before 2.13.4, resource exhaustion can occur because of a lack of a check in BeanDeserializer.
         </notes>
         <cve>CVE-2022-42004</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             In FasterXML jackson-databind before 2.13.4, resource exhaustion can occur because of a lack of a check in BeanDeserializer.
         </notes>
         <cve>CVE-2022-42004</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             SnakeYaml's Constructor() class does not restrict types
         </notes>
         <cve>CVE-2022-1471</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             Spring Cloud Netflix, versions 2.2.x prior to 2.2.4, versions 2.1.x prior to 2.1.6
         </notes>
         <cve>CVE-2020-5412</cve>
     </suppress>
-    <suppress until="2023-12-30">
+    <suppress until="2024-01-30">
         <notes>
             In Spring Cloud OpenFeign 3.0.0 to 3.0.4, 2.2.0.RELEASE to 2.2.9.RELEASE, and older unsupported versions, applications using type-level `@RequestMapping`annotations over Feign client interfaces, can be involuntarily exposing endpoints corresponding to `@RequestMapping`-annotated interface methods.
         </notes>
