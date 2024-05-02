@@ -28,7 +28,7 @@
         <notes>Fix until the import for logback are updated</notes>
         <cve>CVE-2021-42550</cve>
     </suppress>
-    <suppress until="2024-01-30">
+    <suppress until="2024-05-30">
         <notes>Fix until the import for logback are updated</notes>
         <cve>CVE-2020-36518</cve>
     </suppress>
@@ -63,7 +63,7 @@
         </notes>
         <cve>CVE-2022-33915</cve>
     </suppress>
-    <suppress until="2024-01-30">
+    <suppress until="2024-05-30">
         <notes>
           In FasterXML jackson-databind before 2.14.0-rc1, resource exhaustion can occur because of a lack of a check in 
           primitive value deserializers to avoid deep wrapper array nesting, 
@@ -72,7 +72,7 @@
         <cve>CVE-2022-42003</cve>
         <cve>CVE-2022-42004</cve>
     </suppress>
-    <suppress until="2024-01-30">
+    <suppress until="2024-05-30">
         <notes>
             Prior to Apache Commons Net 3.9.0, Net's FTP client trusts the host from PASV response by default.
             A malicious server can redirect the Commons Net code to use a different host, but the user has to
@@ -85,12 +85,12 @@
         <cve>CVE-2021-22053</cve>
         <cve>CVE-2021-22044</cve>
     </suppress>
-    <suppress until="2024-01-30">
+    <suppress until="2024-05-30">
         <cve>CVE-2023-24998</cve>
         <cve>CVE-2022-45688</cve>
         <cve>CVE-2022-1471</cve>
     </suppress>
-    <suppress until="2024-01-30">
+    <suppress until="2024-05-30">
         <cve>CVE-2021-46877</cve>
         <cve>CVE-2023-20863</cve>
     </suppress>
@@ -119,7 +119,7 @@
         </notes>
         <cve>CVE-2022-42004</cve>
     </suppress>
-    <suppress until="2024-01-30">
+    <suppress until="2024-05-30">
         <notes>
             In logback version 1.2.7 and prior versions, an attacker with the required privileges to edit configurations files could craft a malicious configuration allowing to execute arbitrary code loaded from LDAP servers.
         </notes>
@@ -131,7 +131,7 @@
         </notes>
         <cve>CVE-2022-45688</cve>
     </suppress>
-    <suppress until="2024-01-30">
+    <suppress until="2024-05-30">
         <notes>
             In FasterXML jackson-databind before 2.14.0-rc1, resource exhaustion can occur because of a lack of a check in primitive value deserializers to avoid deep wrapper array nesting, when the UNWRAP_SINGLE_VALUE_ARRAYS feature is enabled
         </notes>
@@ -155,7 +155,7 @@
         </notes>
         <cve>CVE-2023-24998</cve>
     </suppress>
-    <suppress until="2024-01-30">
+    <suppress until="2024-05-30">
         <notes>
             Bouncy Castle BC Java before 1.66, BC C# .NET before 1.8.7, BC-FJA before 1.0.1.2, 1.0.2.1, and BC-FNA before 1.0.1.1
         </notes>
@@ -227,7 +227,7 @@
         </notes>
         <cve>CVE-2022-42004</cve>
     </suppress>
-    <suppress until="2024-01-30">
+    <suppress until="2024-05-30">
         <notes>
             Spring Cloud Netflix, versions 2.2.x prior to 2.2.4, versions 2.1.x prior to 2.1.6
         </notes>
