@@ -77,7 +77,7 @@ configurations.all {
 
             /* CVE CVE-2022-41854 */
             if (det.requested.name == 'snakeyaml') {
-                det.useVersion '1.33'
+                det.useVersion '2.2'
             }
         }
     }
