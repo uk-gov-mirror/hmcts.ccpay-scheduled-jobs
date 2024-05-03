@@ -93,7 +93,7 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '3.2.0'
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.1.1'
     implementation group: 'io.github.openfeign', name: 'feign-jackson', version: '13.2.1'
-    implementation group: 'org.json', name: 'json', version: '20231013'
+    implementation group: 'org.json', name: 'json', version: '20240303'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
