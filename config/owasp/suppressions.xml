@@ -63,18 +63,6 @@
         </notes>
         <cve>CVE-2022-33915</cve>
     </suppress>
-    <suppress until="2024-01-30">
-        <notes>
-            The package org.yaml:snakeyaml from 0 and before 1.31 are vulnerable to
-            Denial of Service (DoS) due missing to nested depth limitation for collections.
-            snakeyaml v1.31 (most recent patch available currently) does not resolve the issue.
-        </notes>
-        <cve>CVE-2022-25857</cve>
-        <cve>CVE-2022-38749</cve>
-        <cve>CVE-2022-38750</cve>
-        <cve>CVE-2022-38751</cve>
-        <cve>CVE-2022-38752</cve>
-    </suppress>
     <suppress until="2024-05-30">
         <notes>
           In FasterXML jackson-databind before 2.14.0-rc1, resource exhaustion can occur because of a lack of a check in 
@@ -154,12 +142,6 @@
             Denial of Service in JSON-Java versions up to and including 20230618.
         </notes>
         <cve>CVE-2023-5072</cve>
-    </suppress>
-    <suppress until="2024-01-30">
-        <notes>
-            SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization.
-        </notes>
-        <cve>CVE-2022-1471</cve>
     </suppress>
     <suppress until="2024-01-30">
         <notes>
@@ -246,12 +228,6 @@
         <cve>CVE-2022-42004</cve>
     </suppress>
     <suppress until="2024-05-30">
-        <notes>
-            SnakeYaml's Constructor() class does not restrict types
-        </notes>
-        <cve>CVE-2022-1471</cve>
-    </suppress>
-    <suppress until="2024-01-30">
         <notes>
             Spring Cloud Netflix, versions 2.2.x prior to 2.2.4, versions 2.1.x prior to 2.1.6
         </notes>
