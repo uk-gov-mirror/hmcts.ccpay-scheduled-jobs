@@ -106,12 +106,6 @@
         <cve>CVE-2023-33202</cve>
         <cve>CVE-2023-6378</cve>
     </suppress>
-    <suppress>
-        <notes>
-            In Spring Boot versions 3.0.0 - 3.0.5, 2.7.0 - 2.7.10, and older unsupported versions, an application that is deployed to Cloud Foundry could be susceptible to a security bypass.
-        </notes>
-        <cve>CVE-2023-20873</cve>
-    </suppress>
 
     <suppress until="2024-01-30">
         <notes>
