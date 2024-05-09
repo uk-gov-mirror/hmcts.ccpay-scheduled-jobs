@@ -1,0 +1,16 @@
+---
+version: '3'
+ 
+services:
+  ccpay-scheduled-jobs:
+    build:
+      context: .
+    image: scheduled-jobs:3
+    container_name: ccpay-scheduled-jobs
+    environment:
+      - S2S_URL=http://rpe-service-auth-provider-demo.service.core-compute-demo.internal
+      - PAYMENT_SERVER_URL=http://payment-api-demo.service.core-compute-demo.internal
+      - REFUNDS_SERVER_URL=http://ccpay-refunds-api-demo.service.core-compute-demo.internal
+      - REPORT_NAME=pba-csv-report
+    volumes:
+      - /Users/davidjones/Secrets/mnt/secrets/ccpay:/mnt/secrets/ccpay

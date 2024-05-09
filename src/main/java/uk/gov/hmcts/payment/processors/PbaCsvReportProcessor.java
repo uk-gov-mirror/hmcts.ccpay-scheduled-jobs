@@ -19,6 +19,7 @@ public class PbaCsvReportProcessor implements JobProcessor {
     static {
         services = new ArrayList<>();
         services.add("Civil Money Claims");
+        services.add("Specified Money Claims");
         services.add("Divorce");
         services.add("Finrem");
         services.add("Probate");
