@@ -100,19 +100,7 @@
     <suppress>
         <cve>CVE-2023-20883</cve>
     </suppress>
-    <suppress>
-        <notes>Spring</notes>
-        <cve>CVE-2023-34053</cve>
-        <cve>CVE-2023-33202</cve>
-        <cve>CVE-2023-6378</cve>
-    </suppress>
 
-    <suppress until="2024-01-30">
-        <notes>
-            In FasterXML jackson-databind before 2.13.4, resource exhaustion can occur because of a lack of a check in BeanDeserializer.
-        </notes>
-        <cve>CVE-2022-42004</cve>
-    </suppress>
     <suppress until="2024-05-30">
         <notes>
             In logback version 1.2.7 and prior versions, an attacker with the required privileges to edit configurations files could craft a malicious configuration allowing to execute arbitrary code loaded from LDAP servers.
