@@ -35,7 +35,7 @@ configurations.all {
 
             /*   CVE-2020-17521 */
             if (det.requested.name == 'groovy-xml' || det.requested.name == 'groovy-json') {
-                det.useVersion '3.0.7'
+                det.useVersion '4.0.22'
             }
             /* CVE-2020-13956 */
             if (det.requested.name == 'httpclient') {
