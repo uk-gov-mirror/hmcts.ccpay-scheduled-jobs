@@ -35,6 +35,10 @@ public class JobProcessorFactory {
             return new RefundNotificationUpdateProcessor();
          }
 
+        if(jobType.equalsIgnoreCase("duplicate-sr-report")){
+            return new ServiceRequestCsvReportProcessor();
+        }
+
         if(jobType.equalsIgnoreCase("unprocessed-payment-update")){
             return new UnprocessedPaymentUpdateProcessor();
         }
