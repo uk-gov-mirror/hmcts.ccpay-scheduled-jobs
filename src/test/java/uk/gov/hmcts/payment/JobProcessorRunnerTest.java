@@ -1,11 +1,9 @@
 package uk.gov.hmcts.payment;
 
 import org.junit.jupiter.api.Test;
-import uk.gov.hmcts.payment.processors.BarCsvReportProcessor;
 import uk.gov.hmcts.payment.processors.BaseIntegrationTest;
 import uk.gov.hmcts.payment.processors.JobProcessorConfiguration;
 import uk.gov.hmcts.payment.processors.MockJobProcessorConfiguration;
-import uk.gov.hmcts.payment.processors.S2SHelper;
 
 import static org.junit.jupiter.api.Assertions.*;
 
