@@ -13,7 +13,6 @@ def component = "jobs"
 
 withNightlyPipeline(type, product, component) {
 
-  enableSecurityScan()
   enableFortifyScan('ccpay-aat')
   disableLegacyDeployment()
   nonServiceApp()
