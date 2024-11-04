@@ -16,9 +16,10 @@ withNightlyPipeline(type, product, component) {
   enableFortifyScan('ccpay-aat')
   disableLegacyDeployment()
   nonServiceApp()
+
+  afterAlways('fortify-scan') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
+  }
 }
 
 
-after('fortify-scan') {
-  steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
-}
