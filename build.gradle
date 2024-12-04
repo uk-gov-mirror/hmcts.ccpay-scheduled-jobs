@@ -13,7 +13,7 @@ def javaLoggingVersion = '6.0.1'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -46,7 +46,7 @@ configurations.all {
             if (det.requested.name == 'commons-io') {
                 det.useVersion '2.8.0'
             }
-            
+
             /*CVE-2021-44228, CVE-2021-44832, CVE-2021-45046, CVE-2021-45105*/
             if (det.requested.name == 'log4j-api' || det.requested.name == 'log4j-to-slf4j') {
                 det.useVersion '2.17.1'
@@ -100,7 +100,7 @@ dependencies {
 
 
 task fortifyScan(type: JavaExec)  {
-    main = "uk.gov.hmcts.fortifyclient.FortifyClientMainApp"
+    mainClass = "uk.gov.hmcts.fortifyclient.FortifyClientMainApp"
     classpath += sourceSets.test.runtimeClasspath
     jvmArgs = ['--add-opens=java.base/java.lang.reflect=ALL-UNNAMED']
 }
@@ -108,9 +108,9 @@ task fortifyScan(type: JavaExec)  {
 jacocoTestReport {
   executionData(test)
   reports {
-    xml.enabled = true
-    csv.enabled = false
-    xml.destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
+    xml.required = true
+    csv.required = false
+    xml.outputLocation = file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
   }
 }
 
@@ -125,7 +125,7 @@ sonarqube {
     property "sonar.projectName", "Reform :: payment-jobs"
     property "sonar.projectKey", "uk.gov.hmcts.reform:payment-jobs"
     property "sonar.coverage.exclusions", "**/JobProcessorConfiguration*,**JobProcessorApplication*"
-    property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
+    property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.outputLocation}"
   }
 }
 
