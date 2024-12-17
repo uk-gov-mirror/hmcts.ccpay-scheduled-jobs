@@ -19,7 +19,7 @@ public class ServiceRequestCsvReportProcessor implements JobProcessor {
 
     @Override
     public void process(String serviceToken, String baseURL) {
-        String date = LocalDateTime.now().format(formatter);
+        String date = LocalDateTime.now().minusDays(1).format(formatter);
         LOG.info("Value in ServiceRequestCsvReportProcessor-----"+"BaseURL--------"+baseURL+"Date-----"+date);
         LOG.info("Report is going to be generated for Service Requests");
         headers.put("ServiceAuthorization", serviceToken);
