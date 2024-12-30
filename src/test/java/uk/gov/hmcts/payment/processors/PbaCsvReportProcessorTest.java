@@ -10,7 +10,6 @@ class PbaCsvReportProcessorTest extends BaseIntegrationTest {
     void happyPathSucceeds() {
         stubForS2s();
         // Need to replace service name, once CMC onboarded org id
-        stubForEmailPayReports("PBA", "Civil%20Money%20Claims");
         stubForEmailPayReports("PBA", "Divorce");
         // Need to replace service name, once Finrem onboarded org id
         stubForEmailPayReports("PBA", "Finrem");
