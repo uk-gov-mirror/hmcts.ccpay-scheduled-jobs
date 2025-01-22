@@ -84,6 +84,16 @@ public class BaseIntegrationTest {
         );
     }
 
+    protected void stubForDuplicateServiceRequestReport(String date) {
+        payWiremock.stubFor(post(String.format("/jobs/email-duplicate-sr-report?date=%s", date))
+                .withHeader(CONTENT_TYPE, containing(JSON_CONTENT_TYPE))
+                .withHeader(S2S_AUTHORIZATION_HEADER, equalTo(DUMMY_BEARER_TOKEN_WITH_BEARER))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                )
+        );
+    }
+
     protected void stubForEmailPayReportsWithPaymentMethod(String paymentMethod) {
         payWiremock.stubFor(post("/jobs/email-pay-reports?payment_method=" + paymentMethod)
                 .withHeader(CONTENT_TYPE, containing(JSON_CONTENT_TYPE))
