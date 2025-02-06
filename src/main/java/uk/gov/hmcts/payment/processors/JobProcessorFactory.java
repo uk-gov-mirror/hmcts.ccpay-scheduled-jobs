@@ -14,10 +14,6 @@ public class JobProcessorFactory {
             return new DeadLetterQueueProcessor();
 
         }
-        if(jobType.equalsIgnoreCase("bar-csv-report")){
-            return new BarCsvReportProcessor();
-
-        }
         if(jobType.equalsIgnoreCase("card-csv-report")){
             return new CardCsvReportProcessor();
 
