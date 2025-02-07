@@ -95,7 +95,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.4")
     testImplementation 'com.github.tomakehurst:wiremock:3.0.1'
-    testImplementation 'com.github.hmcts:fortify-client:1.4.6:all'
+    testImplementation 'com.github.hmcts:fortify-client:1.4.7:all'
 }
 
 
