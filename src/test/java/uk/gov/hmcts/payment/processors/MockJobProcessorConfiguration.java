@@ -49,6 +49,6 @@ public class MockJobProcessorConfiguration extends JobProcessorConfiguration {
 
     @Override
     public String getReportName() {
-        return "bar-csv-report";
+        return "pba-csv-report";
     }
 }

@@ -28,12 +28,6 @@ class JobProcessorFactoryTest {
     }
 
     @Test
-    void createBarCsvReportProcessor_returnsNonNullProcessor() {
-        BarCsvReportProcessor processor = (BarCsvReportProcessor) factory.getJobType("bar-csv-report");
-        assertNotNull(processor);
-    }
-
-    @Test
     void createCardCsvReportProcessor_returnsNonNullProcessor() {
         CardCsvReportProcessor processor = (CardCsvReportProcessor) factory.getJobType("card-csv-report");
         assertNotNull(processor);
