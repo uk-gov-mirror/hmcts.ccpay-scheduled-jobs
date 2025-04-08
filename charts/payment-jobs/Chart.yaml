@@ -8,5 +8,5 @@ maintainers:
     email: ccpay@hmcts.net
 dependencies:
   - name: job
-    version: 2.1.2
+    version: 2.2.0
     repository: 'https://hmctspublic.azurecr.io/helm/v1/repo/'
