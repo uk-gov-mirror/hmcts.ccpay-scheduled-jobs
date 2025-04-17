@@ -94,6 +94,7 @@ dependencies {
     implementation group: 'org.json', name: 'json', version: '20250107'
 
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '3.3.5'
+    testImplementation platform('org.springframework:spring-framework-bom:6.1.18')
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.10.5'
 
     testImplementation 'com.github.tomakehurst:wiremock:3.6.0'
