@@ -89,6 +89,7 @@ dependencies {
     implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: '6.1.8'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '3.3.5'
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.2.1'
+    implementation platform('org.springframework:spring-framework-bom:6.1.18')
     implementation group: 'io.github.openfeign', name: 'feign-jackson', version: '13.6'
     implementation group: 'org.json', name: 'json', version: '20250107'
 
