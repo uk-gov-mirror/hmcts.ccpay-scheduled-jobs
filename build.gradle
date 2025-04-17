@@ -58,18 +58,6 @@ configurations.all {
                 det.useVersion '2.17.1'
             }
 
-            // Latest Spring libs. 04/08/2023
-            if (det.requested.name == 'spring-aop'||det.requested.name == 'spring-aspects'||det.requested.name == 'spring-beans'
-                    ||det.requested.name == 'spring-context'||det.requested.name == 'spring-core'||det.requested.name == 'spring-expression'
-                    ||det.requested.name == 'spring-jcl'||det.requested.name == 'spring-jdbc'||det.requested.name == 'spring-orm'
-                    ||det.requested.name == 'spring-tx'||det.requested.name == 'spring-web'||det.requested.name == 'spring-webmvc'
-                    ||det.requested.name == 'spring-context-support'||det.requested.name == 'spring-test'
-                    ||det.requested.name == 'spring-web'||det.requested.name == 'spring-aop'||det.requested.name == 'spring-context'
-                    ||det.requested.name == 'spring-expression'
-            ) {
-                det.useVersion '6.1.6'
-            }
-
             /* CVE CVE-2022-41854 */
             if (det.requested.name == 'snakeyaml') {
                 det.useVersion '2.2'
