@@ -70,7 +70,7 @@ configurations.all {
 dependencies {
     implementation group: 'io.rest-assured', name: 'rest-assured', version: '5.5.1'
 
-    implementation(group: 'com.github.hmcts', name: 'service-auth-provider-java-client', version: '5.3.0') {
+    implementation(group: 'com.github.hmcts', name: 'service-auth-provider-java-client', version: '5.3.2') {
         exclude group: 'com.google.guava', module: 'guava'
         exclude group: 'org.springframework.security', module: 'spring-security-crypto'
     }
