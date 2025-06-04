@@ -74,7 +74,7 @@ dependencies {
         exclude group: 'com.google.guava', module: 'guava'
         exclude group: 'org.springframework.security', module: 'spring-security-crypto'
     }
-    implementation group: 'org.bouncycastle', name: 'bcprov-jdk18on', version: '1.80'
+    implementation group: 'org.bouncycastle', name: 'bcprov-jdk18on', version: '1.81'
     implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: '6.1.9'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '3.3.5'
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.3.0'
