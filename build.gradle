@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 repositories {
     mavenLocal()
     mavenCentral()
-    maven { url "https://jitpack.io" }
+    maven { url = 'https://pkgs.dev.azure.com/hmcts/Artifacts/_packaging/hmcts-lib/maven/v1' }
 }
 
 
@@ -84,7 +84,7 @@ dependencies {
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '3.3.5'
 
     testImplementation("org.wiremock:wiremock:3.13.1")
-    testImplementation 'com.github.hmcts:fortify-client:1.4.8:all'
+    testImplementation 'com.github.hmcts:fortify-client:1.4.9:all'
 }
 
 dependencyManagement {
