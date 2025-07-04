@@ -58,6 +58,7 @@ configurations.all {
                 det.useVersion '2.2'
             }
 
+
             /* CVE-2025-48976 */
             if (det.requested.name == 'commons-fileupload') {
                 det.useVersion '1.6.0'
