@@ -35,6 +35,13 @@ configurations.configureEach {
             if (det.requested.name == 'commons-fileupload') {
                 det.useVersion '1.6.0'
             }
+
+            /*
+                CVE-2025-48924
+            */
+            if (det.requested.group == 'org.apache.commons' && det.requested.name == 'commons-lang3') {
+                det.useVersion '3.18.0'
+            }
         }
     }
 }
