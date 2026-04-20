@@ -1,5 +1,6 @@
-ARG APP_INSIGHTS_AGENT_VERSION=3.5.2
-FROM hmctspublic.azurecr.io/base/java:21-distroless
+ARG APP_INSIGHTS_AGENT_VERSION=3.7.8
+ARG BASE_REGISTRY=hmctsprod.azurecr.io
+FROM ${BASE_REGISTRY}/base/java:21-distroless
 
 USER hmcts
 COPY lib/applicationinsights.json /opt/app/
