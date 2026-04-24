@@ -65,8 +65,8 @@ dependencies {
 
 dependencyManagement {
     imports {
-        /* address CVE-2025-41234 */
-        mavenBom "org.springframework:spring-framework-bom:6.2.11"
+        /* address CVE-2025-41234, CVE-2026-22735 and CVE-2026-22737 */
+        mavenBom "org.springframework:spring-framework-bom:6.2.17"
     }
 }
 
