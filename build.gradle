@@ -47,7 +47,7 @@ configurations.configureEach {
 }
 
 dependencies {
-    implementation group: 'io.rest-assured', name: 'rest-assured', version: '5.5.7'
+    implementation group: 'io.rest-assured', name: 'rest-assured', version: '6.0.0'
     implementation group: 'com.github.hmcts', name: 'service-auth-provider-java-client', version: '5.3.3'
     implementation group: 'org.bouncycastle', name: 'bcprov-jdk18on', version: '1.84'
     implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: '8.0.0'
